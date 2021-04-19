@@ -1,0 +1,1057 @@
+Notebook[{Cell[
+BoxData[RowBox[{RowBox[{"strumien1"," ","="," ",RowBox[{"Import","[",RowBox[
+{"\"http://www.mbnet.com.pl/dl.xls\"",",","\"Data\""}],"]"}]}],";"}]],"Input",CellLabel -> "In[1]:= ",
+ExpressionUUID -> "08598e7d-109d-46dc-bf41-258bb4754a8d"],Cell[
+BoxData[RowBox[{RowBox[
+{"strumien2"," ","="," ",RowBox[{"First","[","strumien1","]"}]}],";"}]],"Input",CellLabel -> "In[2]:= ",
+ExpressionUUID -> "0312c7f7-3114-4216-b27c-3ee5de092cf5"],Cell[
+BoxData[RowBox[{RowBox[
+{"strumien3"," ","="," ",RowBox[{"Table","[",RowBox[{RowBox[{"IntegerPart","[",RowBox[
+{RowBox[{"strumien2","[",RowBox[{"[","i","]"}],"]"}],"[",RowBox[{"[",RowBox[{"3",";;",RowBox[
+{"Length","[",RowBox[{"strumien2","[",RowBox[{"[","1","]"}],"]"}],"]"}]}],"]"}],"]"}],"]"}],",",RowBox[
+{"{",RowBox[{"i",",","1",",",RowBox[{"Length","[","strumien2","]"}]}],"}"}]}],"]"}]}],";"}]],
+"Input",CellLabel -> "In[3]:= ",ExpressionUUID -> "13b66fd7-a02a-49bd-b577-38880d9c9ce5"],Cell[
+BoxData[
+RowBox[{RowBox[{"pary"," ","=",RowBox[{"Table","[",RowBox[{RowBox[{"Subsets","[",RowBox[
+{RowBox[{"strumien3","[",RowBox[{"[","i","]"}],"]"}],",",RowBox[{"{","2","}"}]}],"]"}],",",RowBox[
+{"{",RowBox[{"i",",","1",",",RowBox[{"Length","[","strumien2","]"}]}],"}"}]}],"]"}]}],";"}]],
+"Input",CellLabel -> "In[4]:= ",ExpressionUUID -> "29d52af9-f48e-4d46-aaf5-c1111cec8e4b"],Cell[
+BoxData[
+RowBox[{RowBox[{"listapar"," ","="," ",RowBox[{"Flatten","[",RowBox[{"pary",",","1"}],"]"}]}],";"}]],
+"Input",CellLabel -> "In[5]:= ",ExpressionUUID -> "42ef8100-87d7-4bef-a85c-6ce3016abb49"],Cell[
+BoxData[
+RowBox[{RowBox[{"iloscpar"," ","="," ",RowBox[{"Tally","[","listapar","]"}]}],";"}]],
+"Input",CellLabel -> "In[6]:= ",ExpressionUUID -> "1b042c04-2185-45d2-adc2-3d488cc80c01"],Cell[
+BoxData[
+RowBox[{RowBox[{"koniec"," ","=",RowBox[{"Reverse","[",RowBox[{"SortBy","[",RowBox[
+{"iloscpar",",","Last"}],"]"}],"]"}]}],";"}]],"Input",CellLabel -> "In[7]:= ",ExpressionUUID -> "a43c0bcc-2e66-4546-a29f-03fb1a02fdc3"],Cell[
+CellGroupData[
+{Cell[
+BoxData[RowBox[{"srednia"," ","=",RowBox[{RowBox[{"Mean","["," ",RowBox[{"Table","[",RowBox[
+{RowBox[{RowBox[{"koniec","[",RowBox[{"[","i","]"}],"]"}],"[",RowBox[{"[","2","]"}],"]"}],",",RowBox[
+{"{",RowBox[{"i",",","1",",",RowBox[{"Length","[","koniec","]"}]}],"}"}]}],"]"}],"]"}],"//","N"}]}]],
+"Input",CellLabel -> "In[8]:= ",ExpressionUUID -> "426fd87a-b9bf-4137-a0e0-bad977e13737"],Cell[
+BoxData[
+"82.86989795918367`",StandardForm],"Output",CellLabel -> "Out[8]= ",ExpressionUUID -> "c210ab70-d2d0-4912-aede-cc38e923cba8"]},
+Open],ExpressionUUID -> "dc253159-5de8-4dce-87e7-20eb4c9acebc"],Cell[
+BoxData[RowBox[
+{RowBox[{"wykres"," ","="," ",RowBox[{"koniec","[",RowBox[{"[",RowBox[{"1",";;","20"}],"]"}],"]"}]}],";"}]],
+"Input",CellLabel -> "In[9]:= ",ExpressionUUID -> "0b7edd65-77ae-4dae-83a4-60d9f5f07dac"],Cell[
+BoxData[
+RowBox[{RowBox[{"random"," "," ","="," ",RowBox[{"Table","[",RowBox[{RowBox[{"{",RowBox[
+{"GraphicsColumn","[",RowBox[{RowBox[{RowBox[{"wykres","[",RowBox[{"[","i","]"}],"]"}],"[",RowBox[
+{"[","1","]"}],"]"}],",",RowBox[{"ImageSize","\[Rule]"," ","20"}]}],"]"}],"}"}],",",RowBox[
+{"{",RowBox[{"i",",","1",",","20"}],"}"}]}],"]"}]}],";"}]],"Input",CellLabel -> "In[10]:= ",
+ExpressionUUID -> "2d76829b-7ad9-4eac-add4-dbcd77591b19"],Cell[
+BoxData[RowBox[{RowBox[
+{"wartosci"," ","="," ",RowBox[{"Table","[",RowBox[{RowBox[{RowBox[{"wykres","[",RowBox[
+{"[","i","]"}],"]"}],"[",RowBox[{"[","2","]"}],"]"}],",",RowBox[{"{",RowBox[{"i",",","1",",","20"}],"}"}]}],"]"}]}],";"}]],
+"Input",CellLabel -> "In[11]:= ",ExpressionUUID -> "74587423-af4a-440e-b55f-2b0447df94a4"],Cell[
+BoxData[
+RowBox[{RowBox[{"list"," ","="," ",RowBox[{"Flatten","[","random","]"}]}],";"}]],
+"Input",CellLabel -> "In[12]:= ",ExpressionUUID -> "00a4fdd6-142d-48c4-8e53-c2078d9e7572"],Cell[
+CellGroupData[
+{Cell[
+BoxData[RowBox[{"a"," ","="," ",RowBox[{"BarChart","[",RowBox[{"wartosci",",",RowBox[
+{"BarSpacing"," ","\[Rule]","Large"}],",",RowBox[{"Ticks","\[Rule]",RowBox[{"{",RowBox[
+{"None",",","Automatic"}],"}"}]}]," ",",",RowBox[{"GridLines"," ","\[Rule]"," ",RowBox[
+{"{",RowBox[{"None",",",RowBox[{"{",RowBox[{"{",RowBox[{"srednia",",",RowBox[{"Directive","[",RowBox[
+{"Red",",","Thick"}],"]"}]}],"}"}],"}"}]}],"}"}]}],",",RowBox[{"ColorFunction","\[Rule]","\"CoffeeTones\""}],",",RowBox[
+{"ChartLabels","\[Rule]",RowBox[{"(",RowBox[{"Placed","[",RowBox[{RowBox[{RowBox[
+{RowBox[{"Style","[",RowBox[{"#",","," ","Medium",","," ","Black"}],"]"}]," ","&"}]," ","/@"," ","list"}],",","Above"}],"]"}],")"}]}],",","\n"," ",RowBox[
+{"LabelingFunction"," ","\[Rule]"," ",RowBox[{"(",RowBox[{RowBox[{"Placed","[",RowBox[
+{RowBox[{"Style","[",RowBox[{"#",","," ","Tiny",",","Black"}],"]"}],","," ","Center"}],"]"}]," ","&"}],")"}]}],",",RowBox[
+{"PlotLabel"," ","\[Rule]","\"Analiza wynik\[OAcute]w Du\:017cego Lotka .\\n Pierwsze losowanie:27.01.1957. Ostatnie Losowanie: 26.11.2020. \\n Liczba Losowa\:0144 6497. Najcz\:0119\:015bciej losowane pary liczb:  \""}],",",RowBox[
+{"LabelStyle","\[Rule]",RowBox[{"{","Black","}"}]}]}],"]"}]}]],"Input",CellLabel -> "In[13]:= ",
+ExpressionUUID -> "e5dd0290-e1dd-43ae-8a87-aefc80628e65"],Cell[
+BoxData[GraphicsBox[
+{{Opacity[0],PointBox[CompressedData["1:eJxTTMoPSmNiYGAoZgESPpnFJai8otqNT8S96y7aFzFAAZp8WCgImDjA5QHj5xDz"]]},{{},{Directive[
+EdgeForm[Directive[Thickness[Small],Opacity[0.5599999999999999]]],RGBColor[0.982864,
+0.7431472,0.3262672]],{{Directive[EdgeForm[Directive[Thickness[Small],Opacity[0.5599999999999999]]],
+RGBColor[0.976303,0.999222,0.999207]],TagBox[DynamicBox[{FEPrivate`If[CurrentValue[
+"MouseOver"],EdgeForm[{GrayLevel[0.5],AbsoluteThickness[1.5],Opacity[0.66]}],{},{}],RectangleBox[
+{0.6666666666666666,0.0},{1.3333333333333335,112.0},"RoundingRadius" -> 0]}],"DelayedMouseEffectStyle"]},{Directive[
+EdgeForm[Directive[Thickness[Small],Opacity[0.5599999999999999]]],RGBColor[0.8465933333333333,
+0.7144886666666667,0.45289466666666667]],TagBox[DynamicBox[{FEPrivate`If[CurrentValue[
+"MouseOver"],EdgeForm[{GrayLevel[0.5],AbsoluteThickness[1.5],Opacity[0.66]}],{},{}],RectangleBox[
+{1.6666666666666667,0.0},{2.3333333333333335,109.0},"RoundingRadius" -> 0]}],"DelayedMouseEffectStyle"]},{Directive[
+EdgeForm[Directive[Thickness[Small],Opacity[0.5599999999999999]]],RGBColor[0.8465933333333333,
+0.7144886666666667,0.45289466666666667]],TagBox[DynamicBox[{FEPrivate`If[CurrentValue[
+"MouseOver"],EdgeForm[{GrayLevel[0.5],AbsoluteThickness[1.5],Opacity[0.66]}],{},{}],RectangleBox[
+{2.666666666666667,0.0},{3.333333333333334,109.0},"RoundingRadius" -> 0]}],"DelayedMouseEffectStyle"]},{Directive[
+EdgeForm[Directive[Thickness[Small],Opacity[0.5599999999999999]]],RGBColor[0.7937645555555556,
+0.6348385555555556,0.35991266666666666]],TagBox[DynamicBox[{FEPrivate`If[CurrentValue[
+"MouseOver"],EdgeForm[{GrayLevel[0.5],AbsoluteThickness[1.5],Opacity[0.66]}],{},{}],RectangleBox[
+{3.6666666666666674,0.0},{4.333333333333334,108.0},"RoundingRadius" -> 0]}],"DelayedMouseEffectStyle"]},{Directive[
+EdgeForm[Directive[Thickness[Small],Opacity[0.5599999999999999]]],RGBColor[0.7937645555555556,
+0.6348385555555556,0.35991266666666666]],TagBox[DynamicBox[{FEPrivate`If[CurrentValue[
+"MouseOver"],EdgeForm[{GrayLevel[0.5],AbsoluteThickness[1.5],Opacity[0.66]}],{},{}],RectangleBox[
+{4.666666666666667,0.0},{5.333333333333334,108.0},"RoundingRadius" -> 0]}],"DelayedMouseEffectStyle"]},{Directive[
+EdgeForm[Directive[Thickness[Small],Opacity[0.5599999999999999]]],RGBColor[0.7433384444444444,
+0.5808724444444444,0.33388433333333334]],TagBox[DynamicBox[{FEPrivate`If[CurrentValue[
+"MouseOver"],EdgeForm[{GrayLevel[0.5],AbsoluteThickness[1.5],Opacity[0.66]}],{},{}],RectangleBox[
+{5.666666666666667,0.0},{6.333333333333334,107.0},"RoundingRadius" -> 0]}],"DelayedMouseEffectStyle"]},{Directive[
+EdgeForm[Directive[Thickness[Small],Opacity[0.5599999999999999]]],RGBColor[0.7433384444444444,
+0.5808724444444444,0.33388433333333334]],TagBox[DynamicBox[{FEPrivate`If[CurrentValue[
+"MouseOver"],EdgeForm[{GrayLevel[0.5],AbsoluteThickness[1.5],Opacity[0.66]}],{},{}],RectangleBox[
+{6.666666666666667,0.0},{7.333333333333334,107.0},"RoundingRadius" -> 0]}],"DelayedMouseEffectStyle"]},{Directive[
+EdgeForm[Directive[Thickness[Small],Opacity[0.5599999999999999]]],RGBColor[0.6875726666666667,
+0.5404003333333333,0.34235566666666667]],TagBox[DynamicBox[{FEPrivate`If[CurrentValue[
+"MouseOver"],EdgeForm[{GrayLevel[0.5],AbsoluteThickness[1.5],Opacity[0.66]}],{},{}],RectangleBox[
+{7.666666666666667,0.0},{8.333333333333334,106.0},"RoundingRadius" -> 0]}],"DelayedMouseEffectStyle"]},{Directive[
+EdgeForm[Directive[Thickness[Small],Opacity[0.5599999999999999]]],RGBColor[0.6875726666666667,
+0.5404003333333333,0.34235566666666667]],TagBox[DynamicBox[{FEPrivate`If[CurrentValue[
+"MouseOver"],EdgeForm[{GrayLevel[0.5],AbsoluteThickness[1.5],Opacity[0.66]}],{},{}],RectangleBox[
+{8.666666666666668,0.0},{9.333333333333334,106.0},"RoundingRadius" -> 0]}],"DelayedMouseEffectStyle"]},{Directive[
+EdgeForm[Directive[Thickness[Small],Opacity[0.5599999999999999]]],RGBColor[0.6282471111111111,
+0.5089242222222222,0.3738267777777778]],TagBox[DynamicBox[{FEPrivate`If[CurrentValue[
+"MouseOver"],EdgeForm[{GrayLevel[0.5],AbsoluteThickness[1.5],Opacity[0.66]}],{},{}],RectangleBox[
+{9.666666666666668,0.0},{10.333333333333334,105.0},"RoundingRadius" -> 0]}],"DelayedMouseEffectStyle"]},{Directive[
+EdgeForm[Directive[Thickness[Small],Opacity[0.5599999999999999]]],RGBColor[0.6282471111111111,
+0.5089242222222222,0.3738267777777778]],TagBox[DynamicBox[{FEPrivate`If[CurrentValue[
+"MouseOver"],EdgeForm[{GrayLevel[0.5],AbsoluteThickness[1.5],Opacity[0.66]}],{},{}],RectangleBox[
+{10.666666666666668,0.0},{11.333333333333334,105.0},"RoundingRadius" -> 0]}],"DelayedMouseEffectStyle"]},{Directive[
+EdgeForm[Directive[Thickness[Small],Opacity[0.5599999999999999]]],RGBColor[0.6282471111111111,
+0.5089242222222222,0.3738267777777778]],TagBox[DynamicBox[{FEPrivate`If[CurrentValue[
+"MouseOver"],EdgeForm[{GrayLevel[0.5],AbsoluteThickness[1.5],Opacity[0.66]}],{},{}],RectangleBox[
+{11.666666666666668,0.0},{12.333333333333334,105.0},"RoundingRadius" -> 0]}],"DelayedMouseEffectStyle"]},{Directive[
+EdgeForm[Directive[Thickness[Small],Opacity[0.5599999999999999]]],RGBColor[0.6282471111111111,
+0.5089242222222222,0.3738267777777778]],TagBox[DynamicBox[{FEPrivate`If[CurrentValue[
+"MouseOver"],EdgeForm[{GrayLevel[0.5],AbsoluteThickness[1.5],Opacity[0.66]}],{},{}],RectangleBox[
+{12.666666666666668,0.0},{13.333333333333334,105.0},"RoundingRadius" -> 0]}],"DelayedMouseEffectStyle"]},{Directive[
+EdgeForm[Directive[Thickness[Small],Opacity[0.5599999999999999]]],RGBColor[0.5230264444444445,
+0.42620633333333335,0.33479655555555554]],TagBox[DynamicBox[{FEPrivate`If[CurrentValue[
+"MouseOver"],EdgeForm[{GrayLevel[0.5],AbsoluteThickness[1.5],Opacity[0.66]}],{},{}],RectangleBox[
+{13.666666666666668,0.0},{14.333333333333334,104.0},"RoundingRadius" -> 0]}],"DelayedMouseEffectStyle"]},{Directive[
+EdgeForm[Directive[Thickness[Small],Opacity[0.5599999999999999]]],RGBColor[0.5230264444444445,
+0.42620633333333335,0.33479655555555554]],TagBox[DynamicBox[{FEPrivate`If[CurrentValue[
+"MouseOver"],EdgeForm[{GrayLevel[0.5],AbsoluteThickness[1.5],Opacity[0.66]}],{},{}],RectangleBox[
+{14.666666666666668,0.0},{15.333333333333334,104.0},"RoundingRadius" -> 0]}],"DelayedMouseEffectStyle"]},{Directive[
+EdgeForm[Directive[Thickness[Small],Opacity[0.5599999999999999]]],RGBColor[0.5230264444444445,
+0.42620633333333335,0.33479655555555554]],TagBox[DynamicBox[{FEPrivate`If[CurrentValue[
+"MouseOver"],EdgeForm[{GrayLevel[0.5],AbsoluteThickness[1.5],Opacity[0.66]}],{},{}],RectangleBox[
+{15.666666666666668,0.0},{16.333333333333336,104.0},"RoundingRadius" -> 0]}],"DelayedMouseEffectStyle"]},{Directive[
+EdgeForm[Directive[Thickness[Small],Opacity[0.5599999999999999]]],RGBColor[0.5230264444444445,
+0.42620633333333335,0.33479655555555554]],TagBox[DynamicBox[{FEPrivate`If[CurrentValue[
+"MouseOver"],EdgeForm[{GrayLevel[0.5],AbsoluteThickness[1.5],Opacity[0.66]}],{},{}],RectangleBox[
+{16.666666666666668,0.0},{17.333333333333336,104.0},"RoundingRadius" -> 0]}],"DelayedMouseEffectStyle"]},{Directive[
+EdgeForm[Directive[Thickness[Small],Opacity[0.5599999999999999]]],RGBColor[0.406332,
+0.330678,0.278141]],TagBox[DynamicBox[{FEPrivate`If[CurrentValue["MouseOver"],EdgeForm[
+{GrayLevel[0.5],AbsoluteThickness[1.5],Opacity[0.66]}],{},{}],RectangleBox[{17.666666666666668,0.0},
+{18.333333333333336,103.0},"RoundingRadius" -> 0]}],"DelayedMouseEffectStyle"]},{Directive[
+EdgeForm[Directive[Thickness[Small],Opacity[0.5599999999999999]]],RGBColor[0.406332,
+0.330678,0.278141]],TagBox[DynamicBox[{FEPrivate`If[CurrentValue["MouseOver"],EdgeForm[
+{GrayLevel[0.5],AbsoluteThickness[1.5],Opacity[0.66]}],{},{}],RectangleBox[{18.666666666666668,0.0},
+{19.333333333333336,103.0},"RoundingRadius" -> 0]}],"DelayedMouseEffectStyle"]},{Directive[
+EdgeForm[Directive[Thickness[Small],Opacity[0.5599999999999999]]],RGBColor[0.406332,
+0.330678,0.278141]],TagBox[DynamicBox[{FEPrivate`If[CurrentValue["MouseOver"],EdgeForm[
+{GrayLevel[0.5],AbsoluteThickness[1.5],Opacity[0.66]}],{},{}],RectangleBox[{19.666666666666668,0.0},
+{20.333333333333336,103.0},"RoundingRadius" -> 0]}],"DelayedMouseEffectStyle"]}}},{},{}},{},{InsetBox[
+FormBox[StyleBox[StyleBox[GraphicsBox[{{},{{InsetBox[BoxData[FormBox["9",TraditionalForm]],
+{8.4,-9.066666666666666},{Center,Center},{16.000000000000004,17.0}]},{InsetBox[BoxData[
+FormBox["18",TraditionalForm]],{8.4,-27.199999999999996},{Center,Center},{16.000000000000004,16.999999999999996}]}},{}},
+ImageSize -> 20,{PlotRangePadding -> {6,5},PlotRange -> {{0,16.8},{-36.266666666666666,0}}},
+ImageSize -> 20],Medium,GrayLevel[0],StripOnInput -> False],{GrayLevel[0]},StripOnInput -> False],
+TraditionalForm],Offset[{0,4},{1.0,112.0}],ImageScaled[{0.5,0}]],InsetBox[FormBox[
+StyleBox[StyleBox["112",Tiny,GrayLevel[0],StripOnInput -> False],{GrayLevel[0]},StripOnInput -> False],
+TraditionalForm],{1.0,56.0},ImageScaled[{0.5,0.5}]],InsetBox[FormBox[StyleBox[StyleBox[
+GraphicsBox[{{},{{InsetBox[BoxData[FormBox["6",TraditionalForm]],{8.4,-9.066666666666666},
+{Center,Center},{16.000000000000004,17.0}]},{InsetBox[BoxData[FormBox["42",TraditionalForm]],
+{8.4,-27.199999999999996},{Center,Center},{16.000000000000004,16.999999999999996}]}},{}},
+ImageSize -> 20,{PlotRangePadding -> {6,5},PlotRange -> {{0,16.8},{-36.266666666666666,0}}},
+ImageSize -> 20],Medium,GrayLevel[0],StripOnInput -> False],{GrayLevel[0]},StripOnInput -> False],
+TraditionalForm],Offset[{0,4},{2.0,109.0}],ImageScaled[{0.5,0}]],InsetBox[FormBox[
+StyleBox[StyleBox["109",Tiny,GrayLevel[0],StripOnInput -> False],{GrayLevel[0]},StripOnInput -> False],
+TraditionalForm],{2.0,54.5},ImageScaled[{0.5,0.5}]],InsetBox[FormBox[StyleBox[StyleBox[
+GraphicsBox[{{},{{InsetBox[BoxData[FormBox["1",TraditionalForm]],{8.4,-9.066666666666666},
+{Center,Center},{16.000000000000004,17.0}]},{InsetBox[BoxData[FormBox["17",TraditionalForm]],
+{8.4,-27.199999999999996},{Center,Center},{16.000000000000004,16.999999999999996}]}},{}},
+ImageSize -> 20,{PlotRangePadding -> {6,5},PlotRange -> {{0,16.8},{-36.266666666666666,0}}},
+ImageSize -> 20],Medium,GrayLevel[0],StripOnInput -> False],{GrayLevel[0]},StripOnInput -> False],
+TraditionalForm],Offset[{0,4},{3.0000000000000004,109.0}],ImageScaled[{0.5,0}]],InsetBox[
+FormBox[StyleBox[StyleBox["109",Tiny,GrayLevel[0],StripOnInput -> False],{GrayLevel[
+0]},StripOnInput -> False],TraditionalForm],{3.0000000000000004,54.5},ImageScaled[
+{0.5,0.5}]],InsetBox[FormBox[StyleBox[StyleBox[GraphicsBox[{{},{{InsetBox[BoxData[
+FormBox["17",TraditionalForm]],{8.4,-9.066666666666666},{Center,Center},{16.000000000000004,17.0}]},{InsetBox[
+BoxData[FormBox["21",TraditionalForm]],{8.4,-27.199999999999996},{Center,Center},
+{16.000000000000004,16.999999999999996}]}},{}},ImageSize -> 20,{PlotRangePadding -> {6,5},PlotRange -> {{0,16.8},{-36.266666666666666,0}}},
+ImageSize -> 20],Medium,GrayLevel[0],StripOnInput -> False],{GrayLevel[0]},StripOnInput -> False],
+TraditionalForm],Offset[{0,4},{4.000000000000001,108.0}],ImageScaled[{0.5,0}]],InsetBox[
+FormBox[StyleBox[StyleBox["108",Tiny,GrayLevel[0],StripOnInput -> False],{GrayLevel[
+0]},StripOnInput -> False],TraditionalForm],{4.000000000000001,54.0},ImageScaled[
+{0.5,0.5}]],InsetBox[FormBox[StyleBox[StyleBox[GraphicsBox[{{},{{InsetBox[BoxData[
+FormBox["6",TraditionalForm]],{8.4,-9.066666666666666},{Center,Center},{16.000000000000004,17.0}]},{InsetBox[
+BoxData[FormBox["16",TraditionalForm]],{8.4,-27.199999999999996},{Center,Center},
+{16.000000000000004,16.999999999999996}]}},{}},ImageSize -> 20,{PlotRangePadding -> {6,5},PlotRange -> {{0,16.8},{-36.266666666666666,0}}},
+ImageSize -> 20],Medium,GrayLevel[0],StripOnInput -> False],{GrayLevel[0]},StripOnInput -> False],
+TraditionalForm],Offset[{0,4},{5.0,108.0}],ImageScaled[{0.5,0}]],InsetBox[FormBox[
+StyleBox[StyleBox["108",Tiny,GrayLevel[0],StripOnInput -> False],{GrayLevel[0]},StripOnInput -> False],
+TraditionalForm],{5.0,54.0},ImageScaled[{0.5,0.5}]],InsetBox[FormBox[StyleBox[StyleBox[
+GraphicsBox[{{},{{InsetBox[BoxData[FormBox["27",TraditionalForm]],{8.4,-9.066666666666666},
+{Center,Center},{16.000000000000004,17.0}]},{InsetBox[BoxData[FormBox["34",TraditionalForm]],
+{8.4,-27.199999999999996},{Center,Center},{16.000000000000004,16.999999999999996}]}},{}},
+ImageSize -> 20,{PlotRangePadding -> {6,5},PlotRange -> {{0,16.8},{-36.266666666666666,0}}},
+ImageSize -> 20],Medium,GrayLevel[0],StripOnInput -> False],{GrayLevel[0]},StripOnInput -> False],
+TraditionalForm],Offset[{0,4},{6.0,107.0}],ImageScaled[{0.5,0}]],InsetBox[FormBox[
+StyleBox[StyleBox["107",Tiny,GrayLevel[0],StripOnInput -> False],{GrayLevel[0]},StripOnInput -> False],
+TraditionalForm],{6.0,53.5},ImageScaled[{0.5,0.5}]],InsetBox[FormBox[StyleBox[StyleBox[
+GraphicsBox[{{},{{InsetBox[BoxData[FormBox["13",TraditionalForm]],{8.4,-9.066666666666666},
+{Center,Center},{16.000000000000004,17.0}]},{InsetBox[BoxData[FormBox["15",TraditionalForm]],
+{8.4,-27.199999999999996},{Center,Center},{16.000000000000004,16.999999999999996}]}},{}},
+ImageSize -> 20,{PlotRangePadding -> {6,5},PlotRange -> {{0,16.8},{-36.266666666666666,0}}},
+ImageSize -> 20],Medium,GrayLevel[0],StripOnInput -> False],{GrayLevel[0]},StripOnInput -> False],
+TraditionalForm],Offset[{0,4},{7.0,107.0}],ImageScaled[{0.5,0}]],InsetBox[FormBox[
+StyleBox[StyleBox["107",Tiny,GrayLevel[0],StripOnInput -> False],{GrayLevel[0]},StripOnInput -> False],
+TraditionalForm],{7.0,53.5},ImageScaled[{0.5,0.5}]],InsetBox[FormBox[StyleBox[StyleBox[
+GraphicsBox[{{},{{InsetBox[BoxData[FormBox["5",TraditionalForm]],{8.4,-9.066666666666666},
+{Center,Center},{16.000000000000004,17.0}]},{InsetBox[BoxData[FormBox["15",TraditionalForm]],
+{8.4,-27.199999999999996},{Center,Center},{16.000000000000004,16.999999999999996}]}},{}},
+ImageSize -> 20,{PlotRangePadding -> {6,5},PlotRange -> {{0,16.8},{-36.266666666666666,0}}},
+ImageSize -> 20],Medium,GrayLevel[0],StripOnInput -> False],{GrayLevel[0]},StripOnInput -> False],
+TraditionalForm],Offset[{0,4},{8.0,106.0}],ImageScaled[{0.5,0}]],InsetBox[FormBox[
+StyleBox[StyleBox["106",Tiny,GrayLevel[0],StripOnInput -> False],{GrayLevel[0]},StripOnInput -> False],
+TraditionalForm],{8.0,53.0},ImageScaled[{0.5,0.5}]],InsetBox[FormBox[StyleBox[StyleBox[
+GraphicsBox[{{},{{InsetBox[BoxData[FormBox["4",TraditionalForm]],{8.4,-9.066666666666666},
+{Center,Center},{16.000000000000004,17.0}]},{InsetBox[BoxData[FormBox["20",TraditionalForm]],
+{8.4,-27.199999999999996},{Center,Center},{16.000000000000004,16.999999999999996}]}},{}},
+ImageSize -> 20,{PlotRangePadding -> {6,5},PlotRange -> {{0,16.8},{-36.266666666666666,0}}},
+ImageSize -> 20],Medium,GrayLevel[0],StripOnInput -> False],{GrayLevel[0]},StripOnInput -> False],
+TraditionalForm],Offset[{0,4},{9.0,106.0}],ImageScaled[{0.5,0}]],InsetBox[FormBox[
+StyleBox[StyleBox["106",Tiny,GrayLevel[0],StripOnInput -> False],{GrayLevel[0]},StripOnInput -> False],
+TraditionalForm],{9.0,53.0},ImageScaled[{0.5,0.5}]],InsetBox[FormBox[StyleBox[StyleBox[
+GraphicsBox[{{},{{InsetBox[BoxData[FormBox["31",TraditionalForm]],{8.4,-9.066666666666666},
+{Center,Center},{16.000000000000004,17.0}]},{InsetBox[BoxData[FormBox["42",TraditionalForm]],
+{8.4,-27.199999999999996},{Center,Center},{16.000000000000004,16.999999999999996}]}},{}},
+ImageSize -> 20,{PlotRangePadding -> {6,5},PlotRange -> {{0,16.8},{-36.266666666666666,0}}},
+ImageSize -> 20],Medium,GrayLevel[0],StripOnInput -> False],{GrayLevel[0]},StripOnInput -> False],
+TraditionalForm],Offset[{0,4},{10.0,105.0}],ImageScaled[{0.5,0}]],InsetBox[FormBox[
+StyleBox[StyleBox["105",Tiny,GrayLevel[0],StripOnInput -> False],{GrayLevel[0]},StripOnInput -> False],
+TraditionalForm],{10.0,52.5},ImageScaled[{0.5,0.5}]],InsetBox[FormBox[StyleBox[StyleBox[
+GraphicsBox[{{},{{InsetBox[BoxData[FormBox["25",TraditionalForm]],{8.4,-9.066666666666666},
+{Center,Center},{16.000000000000004,17.0}]},{InsetBox[BoxData[FormBox["27",TraditionalForm]],
+{8.4,-27.199999999999996},{Center,Center},{16.000000000000004,16.999999999999996}]}},{}},
+ImageSize -> 20,{PlotRangePadding -> {6,5},PlotRange -> {{0,16.8},{-36.266666666666666,0}}},
+ImageSize -> 20],Medium,GrayLevel[0],StripOnInput -> False],{GrayLevel[0]},StripOnInput -> False],
+TraditionalForm],Offset[{0,4},{11.0,105.0}],ImageScaled[{0.5,0}]],InsetBox[FormBox[
+StyleBox[StyleBox["105",Tiny,GrayLevel[0],StripOnInput -> False],{GrayLevel[0]},StripOnInput -> False],
+TraditionalForm],{11.0,52.5},ImageScaled[{0.5,0.5}]],InsetBox[FormBox[StyleBox[StyleBox[
+GraphicsBox[{{},{{InsetBox[BoxData[FormBox["21",TraditionalForm]],{8.4,-9.066666666666666},
+{Center,Center},{16.000000000000004,17.0}]},{InsetBox[BoxData[FormBox["39",TraditionalForm]],
+{8.4,-27.199999999999996},{Center,Center},{16.000000000000004,16.999999999999996}]}},{}},
+ImageSize -> 20,{PlotRangePadding -> {6,5},PlotRange -> {{0,16.8},{-36.266666666666666,0}}},
+ImageSize -> 20],Medium,GrayLevel[0],StripOnInput -> False],{GrayLevel[0]},StripOnInput -> False],
+TraditionalForm],Offset[{0,4},{12.0,105.0}],ImageScaled[{0.5,0}]],InsetBox[FormBox[
+StyleBox[StyleBox["105",Tiny,GrayLevel[0],StripOnInput -> False],{GrayLevel[0]},StripOnInput -> False],
+TraditionalForm],{12.0,52.5},ImageScaled[{0.5,0.5}]],InsetBox[FormBox[StyleBox[StyleBox[
+GraphicsBox[{{},{{InsetBox[BoxData[FormBox["13",TraditionalForm]],{8.4,-9.066666666666666},
+{Center,Center},{16.000000000000004,17.0}]},{InsetBox[BoxData[FormBox["37",TraditionalForm]],
+{8.4,-27.199999999999996},{Center,Center},{16.000000000000004,16.999999999999996}]}},{}},
+ImageSize -> 20,{PlotRangePadding -> {6,5},PlotRange -> {{0,16.8},{-36.266666666666666,0}}},
+ImageSize -> 20],Medium,GrayLevel[0],StripOnInput -> False],{GrayLevel[0]},StripOnInput -> False],
+TraditionalForm],Offset[{0,4},{13.0,105.0}],ImageScaled[{0.5,0}]],InsetBox[FormBox[
+StyleBox[StyleBox["105",Tiny,GrayLevel[0],StripOnInput -> False],{GrayLevel[0]},StripOnInput -> False],
+TraditionalForm],{13.0,52.5},ImageScaled[{0.5,0.5}]],InsetBox[FormBox[StyleBox[StyleBox[
+GraphicsBox[{{},{{InsetBox[BoxData[FormBox["26",TraditionalForm]],{8.4,-9.066666666666666},
+{Center,Center},{16.000000000000004,17.0}]},{InsetBox[BoxData[FormBox["42",TraditionalForm]],
+{8.4,-27.199999999999996},{Center,Center},{16.000000000000004,16.999999999999996}]}},{}},
+ImageSize -> 20,{PlotRangePadding -> {6,5},PlotRange -> {{0,16.8},{-36.266666666666666,0}}},
+ImageSize -> 20],Medium,GrayLevel[0],StripOnInput -> False],{GrayLevel[0]},StripOnInput -> False],
+TraditionalForm],Offset[{0,4},{14.0,104.0}],ImageScaled[{0.5,0}]],InsetBox[FormBox[
+StyleBox[StyleBox["104",Tiny,GrayLevel[0],StripOnInput -> False],{GrayLevel[0]},StripOnInput -> False],
+TraditionalForm],{14.0,52.0},ImageScaled[{0.5,0.5}]],InsetBox[FormBox[StyleBox[StyleBox[
+GraphicsBox[{{},{{InsetBox[BoxData[FormBox["17",TraditionalForm]],{8.4,-9.066666666666666},
+{Center,Center},{16.000000000000004,17.0}]},{InsetBox[BoxData[FormBox["38",TraditionalForm]],
+{8.4,-27.199999999999996},{Center,Center},{16.000000000000004,16.999999999999996}]}},{}},
+ImageSize -> 20,{PlotRangePadding -> {6,5},PlotRange -> {{0,16.8},{-36.266666666666666,0}}},
+ImageSize -> 20],Medium,GrayLevel[0],StripOnInput -> False],{GrayLevel[0]},StripOnInput -> False],
+TraditionalForm],Offset[{0,4},{15.0,104.0}],ImageScaled[{0.5,0}]],InsetBox[FormBox[
+StyleBox[StyleBox["104",Tiny,GrayLevel[0],StripOnInput -> False],{GrayLevel[0]},StripOnInput -> False],
+TraditionalForm],{15.0,52.0},ImageScaled[{0.5,0.5}]],InsetBox[FormBox[StyleBox[StyleBox[
+GraphicsBox[{{},{{InsetBox[BoxData[FormBox["13",TraditionalForm]],{8.4,-9.066666666666666},
+{Center,Center},{16.000000000000004,17.0}]},{InsetBox[BoxData[FormBox["31",TraditionalForm]],
+{8.4,-27.199999999999996},{Center,Center},{16.000000000000004,16.999999999999996}]}},{}},
+ImageSize -> 20,{PlotRangePadding -> {6,5},PlotRange -> {{0,16.8},{-36.266666666666666,0}}},
+ImageSize -> 20],Medium,GrayLevel[0],StripOnInput -> False],{GrayLevel[0]},StripOnInput -> False],
+TraditionalForm],Offset[{0,4},{16.0,104.0}],ImageScaled[{0.5,0}]],InsetBox[FormBox[
+StyleBox[StyleBox["104",Tiny,GrayLevel[0],StripOnInput -> False],{GrayLevel[0]},StripOnInput -> False],
+TraditionalForm],{16.0,52.0},ImageScaled[{0.5,0.5}]],InsetBox[FormBox[StyleBox[StyleBox[
+GraphicsBox[{{},{{InsetBox[BoxData[FormBox["9",TraditionalForm]],{8.4,-9.066666666666666},
+{Center,Center},{16.000000000000004,17.0}]},{InsetBox[BoxData[FormBox["29",TraditionalForm]],
+{8.4,-27.199999999999996},{Center,Center},{16.000000000000004,16.999999999999996}]}},{}},
+ImageSize -> 20,{PlotRangePadding -> {6,5},PlotRange -> {{0,16.8},{-36.266666666666666,0}}},
+ImageSize -> 20],Medium,GrayLevel[0],StripOnInput -> False],{GrayLevel[0]},StripOnInput -> False],
+TraditionalForm],Offset[{0,4},{17.0,104.0}],ImageScaled[{0.5,0}]],InsetBox[FormBox[
+StyleBox[StyleBox["104",Tiny,GrayLevel[0],StripOnInput -> False],{GrayLevel[0]},StripOnInput -> False],
+TraditionalForm],{17.0,52.0},ImageScaled[{0.5,0.5}]],InsetBox[FormBox[StyleBox[StyleBox[
+GraphicsBox[{{},{{InsetBox[BoxData[FormBox["34",TraditionalForm]],{8.4,-9.066666666666666},
+{Center,Center},{16.000000000000004,17.0}]},{InsetBox[BoxData[FormBox["46",TraditionalForm]],
+{8.4,-27.199999999999996},{Center,Center},{16.000000000000004,16.999999999999996}]}},{}},
+ImageSize -> 20,{PlotRangePadding -> {6,5},PlotRange -> {{0,16.8},{-36.266666666666666,0}}},
+ImageSize -> 20],Medium,GrayLevel[0],StripOnInput -> False],{GrayLevel[0]},StripOnInput -> False],
+TraditionalForm],Offset[{0,4},{18.0,103.0}],ImageScaled[{0.5,0}]],InsetBox[FormBox[
+StyleBox[StyleBox["103",Tiny,GrayLevel[0],StripOnInput -> False],{GrayLevel[0]},StripOnInput -> False],
+TraditionalForm],{18.0,51.5},ImageScaled[{0.5,0.5}]],InsetBox[FormBox[StyleBox[StyleBox[
+GraphicsBox[{{},{{InsetBox[BoxData[FormBox["34",TraditionalForm]],{8.4,-9.066666666666666},
+{Center,Center},{16.000000000000004,17.0}]},{InsetBox[BoxData[FormBox["36",TraditionalForm]],
+{8.4,-27.199999999999996},{Center,Center},{16.000000000000004,16.999999999999996}]}},{}},
+ImageSize -> 20,{PlotRangePadding -> {6,5},PlotRange -> {{0,16.8},{-36.266666666666666,0}}},
+ImageSize -> 20],Medium,GrayLevel[0],StripOnInput -> False],{GrayLevel[0]},StripOnInput -> False],
+TraditionalForm],Offset[{0,4},{19.0,103.0}],ImageScaled[{0.5,0}]],InsetBox[FormBox[
+StyleBox[StyleBox["103",Tiny,GrayLevel[0],StripOnInput -> False],{GrayLevel[0]},StripOnInput -> False],
+TraditionalForm],{19.0,51.5},ImageScaled[{0.5,0.5}]],InsetBox[FormBox[StyleBox[StyleBox[
+GraphicsBox[{{},{{InsetBox[BoxData[FormBox["32",TraditionalForm]],{8.4,-9.066666666666666},
+{Center,Center},{16.000000000000004,17.0}]},{InsetBox[BoxData[FormBox["34",TraditionalForm]],
+{8.4,-27.199999999999996},{Center,Center},{16.000000000000004,16.999999999999996}]}},{}},
+ImageSize -> 20,{PlotRangePadding -> {6,5},PlotRange -> {{0,16.8},{-36.266666666666666,0}}},
+ImageSize -> 20],Medium,GrayLevel[0],StripOnInput -> False],{GrayLevel[0]},StripOnInput -> False],
+TraditionalForm],Offset[{0,4},{20.0,103.0}],ImageScaled[{0.5,0}]],InsetBox[FormBox[
+StyleBox[StyleBox["103",Tiny,GrayLevel[0],StripOnInput -> False],{GrayLevel[0]},StripOnInput -> False],
+TraditionalForm],{20.0,51.5},ImageScaled[{0.5,0.5}]]},{},{},{StyleBox[{Antialiasing -> False,{Directive[
+Thickness[Tiny]],{LineBox[CompressedData["1:eJxTTMoPSmNiYGAoZgESPpnFJai8otqNT8S96y7aFzFAAZq8UG1KAtceEwe4PADkYxEN"]]},StyleBox[
+{},{"GraphicsLabel"},StripOnInput -> False]},StyleBox[{{Directive[Thickness[Tiny]],LineBox[
+CompressedData["1:eJxTTMoPSmNiYGAoZgESPpnFJai8olAweGpfxAAFEHk2IOGfllacWpLKCGSCxDqel/18devyHogyiQOEDAIAelIbew=="]],LineBox[
+CompressedData["1:eJxTTMoPSmNiYGAoZgESPpnFJai8ovBQEDBxKGKAAog8G5DwT0srTi1JZQQyQWIdz8t+vrp1eQ9EmcQBQgYBADnWGh8="]],{{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{}}},StyleBox[
+{},{"GraphicsLabel"},StripOnInput -> False]},{"GraphicsTicks"},StripOnInput -> False]},
+{"GraphicsAxes"},StripOnInput -> False]}},{DisplayFunction -> Identity,AspectRatio -> NCache[
+Power[GoldenRatio,-1],0.6180339887498948],Axes -> {False,True},AxesLabel -> {None,None},AxesOrigin -> {0.27333333333333326,0.0},CoordinatesToolOptions -> CompressedData[
+"1:eJxTTMoPSmNiYGAoZgESPpnFJQheUGlOajA/kOGSWVyQk1jpVpqXXJKZn5fGCFLBASTgIqgmwOU9U1LzSjJLKhHyAYlFUHkQLzgnvyQTxAMT5OgDKUBzsTCQ4ZxfkJmaEpaYU5o6WF0NAFk5TEk="],FrameLabel -> {{None,None},{None,None}},FrameTicks -> {{Automatic,Automatic},{Automatic,Automatic}},GridLines -> {None,{{82.86989795918367,Directive[
+RGBColor[1,0,0],Thickness[Large]]}}},GridLinesStyle -> Directive[GrayLevel[0.5,0.4]],LabelStyle -> {GrayLevel[
+0]},PlotLabel -> FormBox["\"Analiza wynik\[OAcute]w Du\:017cego Lotka .\\n Pierwsze losowanie:27.01.1957. Ostatnie Losowanie: 26.11.2020. \\n Liczba Losowa\:0144 6497. Najcz\:0119\:015bciej losowane pary liczb:  \"",
+TraditionalForm],PlotRange -> {{All,All},{All,All}},PlotRangePadding -> {{Scaled[
+0.02],Scaled[0.02]},{Scaled[0.02],Scaled[0.05]}},Ticks -> {None,Automatic}},ExpressionUUID -> "83f55ebf-091b-4d57-ad7a-414a6f6fc44e"],
+StandardForm],"Output",CellLabel -> "Out[13]= ",ExpressionUUID -> "44a17082-d1d9-4e2e-ac04-4f1db6e2d50e"]},
+Open],ExpressionUUID -> "8d498206-5747-49e3-b72d-f90611e12b59"],Cell[
+BoxData[RowBox[
+{RowBox[{"strumien3"," ","="," ",RowBox[{"Table","[",RowBox[{RowBox[{"IntegerPart","[",RowBox[
+{RowBox[{"strumien2","[",RowBox[{"[","i","]"}],"]"}],"[",RowBox[{"[",RowBox[{"3",";;",RowBox[
+{"Length","[",RowBox[{"strumien2","[",RowBox[{"[","1","]"}],"]"}],"]"}]}],"]"}],"]"}],"]"}],",",RowBox[
+{"{",RowBox[{"i",",","1",",",RowBox[{"Length","[","strumien2","]"}]}],"}"}]}],"]"}]}],";"}]],
+"Input",CellLabel -> "In[14]:= ",ExpressionUUID -> "a247b643-bbf9-4954-b9e4-89cf652f74e8"],Cell[
+BoxData[
+RowBox[{RowBox[{"TrueFalse"," ","="," ",RowBox[{"Table","[",RowBox[{RowBox[{"Total","[",RowBox[
+{"Boole","[",RowBox[{"EvenQ","[",RowBox[{RowBox[{"strumien3","[",RowBox[{"[","i","]"}],"]"}],"[",RowBox[
+{"[",RowBox[{"Table","[",RowBox[{"j",",",RowBox[{"{",RowBox[{"j",",","1",",",RowBox[
+{"Length","[",RowBox[{"strumien3","[",RowBox[{"[","1","]"}],"]"}],"]"}]}],"}"}]}],"]"}],"]"}],"]"}],"]"}],"]"}],"]"}],",",RowBox[
+{"{",RowBox[{"i",",","1",",",RowBox[{"Length","[","strumien2","]"}]}],"}"}]}],"]"}]}],";"}]],
+"Input",CellLabel -> "In[15]:= ",ExpressionUUID -> "9da20c88-04b9-4aa0-b635-5ed6cea24146"],Cell[
+CellGroupData[
+{Cell[
+BoxData[RowBox[{"wynik2"," ","="," ",RowBox[{"Reverse","[",RowBox[{"SortBy","[",RowBox[
+{RowBox[{"Tally","[","TrueFalse","]"}],",","Last"}],"]"}],"]"}]}]],"Input",CellLabel -> "In[16]:= ",
+ExpressionUUID -> "42e5d845-e0e2-4c2b-9157-c672bf6817e1"],Cell[
+BoxData[RowBox[{"{",RowBox[
+{RowBox[{"{",RowBox[{"3",",","2224"}],"}"}],",",RowBox[{"{",RowBox[{"2",",","1560"}],"}"}],",",RowBox[
+{"{",RowBox[{"4",",","1458"}],"}"}],",",RowBox[{"{",RowBox[{"1",",","608"}],"}"}],",",RowBox[
+{"{",RowBox[{"5",",","487"}],"}"}],",",RowBox[{"{",RowBox[{"0",",","86"}],"}"}],",",RowBox[
+{"{",RowBox[{"6",",","74"}],"}"}]}],"}"}],StandardForm],"Output",CellLabel -> "Out[16]= ",
+ExpressionUUID -> "fea2bb00-32b5-41dd-a1d9-438070969be8"]},Open],ExpressionUUID -> "7476b193-4272-4bae-ae42-1277474562fd"],Cell[
+CellGroupData[
+{Cell[
+BoxData[RowBox[{"wykres2"," ","="," ",RowBox[{"Table","[",RowBox[{RowBox[{RowBox[
+{"wynik2","[",RowBox[{"[","i","]"}],"]"}],"[",RowBox[{"[","2","]"}],"]"}],",",RowBox[
+{"{",RowBox[{"i",",","1",",",RowBox[{"Length","[","wynik2","]"}]}],"}"}]}],"]"}]}]],
+"Input",CellLabel -> "In[17]:= ",ExpressionUUID -> "28fa4630-e6f5-4120-a803-a60beb5ce708"],Cell[
+BoxData[
+RowBox[{"{",RowBox[{"2224",",","1560",",","1458",",","608",",","487",",","86",",","74"}],"}"}],
+StandardForm],"Output",CellLabel -> "Out[17]= ",ExpressionUUID -> "0d31cdaa-6e5e-454a-a7b6-cb341cfb1f44"]},
+Open],ExpressionUUID -> "0ccd3559-0c1c-40eb-9e4e-d305c245f02d"],Cell[
+CellGroupData[
+{Cell[
+BoxData[RowBox[{"procenty"," ","="," ",RowBox[{"Table","[",RowBox[{RowBox[
+{RowBox[{"Round","[",RowBox[{RowBox[{"100","*",RowBox[{RowBox[{"wykres2","[",RowBox[
+{"[","i","]"}],"]"}],"/",RowBox[{"Total","[","wykres2","]"}]}]}],",","0.01"}],"]"}],"\"%\""}],",",RowBox[
+{"{",RowBox[{"i",",","1",",",RowBox[{"Length","[","wynik2","]"}]}],"}"}]}],"]"}]}]],
+"Input",CellLabel -> "In[18]:= ",ExpressionUUID -> "7864d665-c6c2-4c30-81f6-11b126963236"],Cell[
+BoxData[
+RowBox[{"{",RowBox[{RowBox[{"34.230000000000004`"," ","\"%\""}],",",RowBox[{"24.01`"," ","\"%\""}],",",RowBox[
+{"22.44`"," ","\"%\""}],",",RowBox[{"9.36`"," ","\"%\""}],",",RowBox[{"7.5`"," ","\"%\""}],",",RowBox[
+{"1.32`"," ","\"%\""}],",",RowBox[{"1.1400000000000001`"," ","\"%\""}]}],"}"}],StandardForm],
+"Output",CellLabel -> "Out[18]= ",ExpressionUUID -> "6864cd06-40cc-4ae9-a344-1969affbe2af"]},
+Open],ExpressionUUID -> "fb008186-00dd-4ca3-8102-a3258c60799b"],Cell[
+CellGroupData[
+{Cell[
+BoxData[RowBox[{"PN"," ","=",RowBox[{"{",RowBox[{RowBox[{"{",RowBox[{RowBox[
+{"3","\"P\""}],",",RowBox[{"3","\"N\""}]}],"}"}],",",RowBox[{"{",RowBox[{RowBox[{"2","\"P\""}],",",RowBox[
+{"4","\"N\""}]}],"}"}],",",RowBox[{"{",RowBox[{RowBox[{"4","\"P\""}],",",RowBox[{"2","\"N\""}]}],"}"}],",",RowBox[
+{"{",RowBox[{RowBox[{"1","\"P\""}],",",RowBox[{"5","\"N\""}]}],"}"}],",",RowBox[{"{",RowBox[
+{RowBox[{"5","\"P\""}],",",RowBox[{"1","\"N\""}]}],"}"}],",",RowBox[{"{",RowBox[{"\"0P\"",",",RowBox[
+{"6","\"N\""}]}],"}"}],",",RowBox[{"{",RowBox[{RowBox[{"6","\"P\""}],","," "," ","\"0N\""}],"}"}]}],"}"}]}]],
+"Input",CellLabel -> "In[34]:= ",ExpressionUUID -> "cc388b2a-670e-4cf7-88b8-6037c3784757"],Cell[
+BoxData[
+RowBox[{"{",RowBox[{RowBox[{"{",RowBox[{RowBox[{"3"," ","\"P\""}],",",RowBox[{"3"," ","\"N\""}]}],"}"}],",",RowBox[
+{"{",RowBox[{RowBox[{"2"," ","\"P\""}],",",RowBox[{"4"," ","\"N\""}]}],"}"}],",",RowBox[
+{"{",RowBox[{RowBox[{"4"," ","\"P\""}],",",RowBox[{"2"," ","\"N\""}]}],"}"}],",",RowBox[
+{"{",RowBox[{"\"P\"",",",RowBox[{"5"," ","\"N\""}]}],"}"}],",",RowBox[{"{",RowBox[
+{RowBox[{"5"," ","\"P\""}],",","\"N\""}],"}"}],",",RowBox[{"{",RowBox[{"\"0P\"",",",RowBox[
+{"6"," ","\"N\""}]}],"}"}],",",RowBox[{"{",RowBox[{RowBox[{"6"," ","\"P\""}],",","\"0N\""}],"}"}]}],"}"}],
+StandardForm],"Output",CellLabel -> "Out[34]= ",ExpressionUUID -> "d2a197d5-c30e-4e7b-8530-017beb3576a6"]},
+Open],ExpressionUUID -> "629ef153-8818-47a6-95da-ac30552cb741"],Cell[
+CellGroupData[
+{Cell[
+BoxData[RowBox[{"b","=",RowBox[{"PieChart","[",RowBox[{"wykres2",","," ",RowBox[
+{"SectorOrigin"," ","\[Rule]"," ",RowBox[{"{",RowBox[{"Automatic",","," ","1"}],"}"}]}],","," ",RowBox[
+{"ChartLabels"," ","\[Rule]"," ","\n","  ",RowBox[{"Placed","[",RowBox[{RowBox[{"{",RowBox[
+{"procenty",","," ","PN"}],"}"}],","," ",RowBox[{"{",RowBox[{"\"RadialCenter\"",","," ","\n","    ","\"RadialCallout\""}],"}"}]}],"]"}]}],",",RowBox[
+{"ChartStyle","\[Rule]",RowBox[{"{",RowBox[{RowBox[{"ColorData","[",RowBox[{"\"CoffeeTones\"",",","0.1"}],"]"}],",",RowBox[
+{"ColorData","[",RowBox[{"\"CoffeeTones\"",",","0.3"}],"]"}],",",RowBox[{"ColorData","[",RowBox[
+{"\"CoffeeTones\"",",","0.4"}],"]"}],",",RowBox[{"ColorData","[",RowBox[{"\"CoffeeTones\"",",","0.60"}],"]"}],",",RowBox[
+{"ColorData","[",RowBox[{"\"CoffeeTones\"",",","0.70"}],"]"}],",",RowBox[{"ColorData","[",RowBox[
+{"\"CoffeeTones\"",",","0.8"}],"]"}],",",RowBox[{"ColorData","[",RowBox[{"\"CoffeeTones\"",",","0.95"}],"]"}]}],"}"}]}],",",RowBox[
+{"PlotLabel"," ","\[Rule]","\"Cz\:0119sto\:015b\[CAcute] parzystych(P) i\\n nieparzystych(N) \\n liczb w losowaniu: \""}],",",RowBox[
+{"LabelStyle","\[Rule]",RowBox[{"Directive","[","Black","]"}]}],",",RowBox[{"PlotRange","\[Rule]","All"}]}],"]"}]}]],
+"Input",CellLabel -> "In[35]:= ",ExpressionUUID -> "a899e448-61e6-43db-9831-b8a10c828931"],Cell[
+BoxData[
+GraphicsBox[{{},{},DynamicModuleBox[{Set[DynamicChart`click$287424$287536,False],Set[
+DynamicChart`click$287432$287536,False],Set[DynamicChart`click$287440$287536,False],Set[
+DynamicChart`click$287448$287536,False],Set[DynamicChart`click$287456$287536,False],Set[
+DynamicChart`click$287464$287536,False],Set[DynamicChart`click$287472$287536,False]},
+{{Directive[RGBColor[0.5,0.5,1.0],EdgeForm[Directive[GrayLevel[0],Opacity[0.5]]]],{{{{{{},{{Directive[
+EdgeForm[Directive[GrayLevel[0],Opacity[0.5]]],RGBColor[0.5113570000000001,0.4166535,
+0.329131]],TagBox[GeometricTransformationBox[TagBox[TagBox[TooltipBox[TagBox[{{TagBox[
+DynamicBox[{FEPrivate`If[CurrentValue["MouseOver"],EdgeForm[{GrayLevel[0.5],AbsoluteThickness[
+2.5],Opacity[0.66]}],{},{}],PolygonBox[CompressedData["1:eJxTTMoPSmViYGDQA2IQzXJcybi+86G98WovSfsjr+yV3DKfF667a78gcZnS3sg39g4G1ZEhjDfsQ3YtEXu98q396cS9SW2Sl+ylZm7imbzxnf3U0v3eH7hO2L+S8ss2yHtvfzSb6Zp4wHb7Nct/8n+7+97egXWLCcPrqv26mxdvu/T/vb1MtM7TqJW79nNd3ze1+PJ7+74jsenZG0/uX/NwhYZr5Hv7n1d53dc8v7Q/gKlIrWjSO3v2HdxTsk7c2L+6vmf5g4a39tOO5O+emHNvP1d1XKOu+hv7gFbzBu3HD/ef9eB/vLTjlf0qgbQDQSlP9vfp6Tnbr3xhL/FbV2L+5mf75xa829jb+8xe2/L+k6zTL/avKlq0fIfVE/vy992mM5a92u+z/nJW3raH9l/bl/jOdXiz/93hnsg1vPfsOVxs9/ZPfbufh3P3H8bUG/bujnc/6y56t/8Zq2/L5oZL9g9E8s2eJ7/fP7XCmDvw3gn7po47Tx7eeL/faEvZrjt/dtgzgMGH/ewxIsZqyxbaQPgMByD8jTYQ9f+h6k9AzfsPNQ9m3z+ofY+g7vkLdc8LqHv/QN37DuqfX1D/fIT69wfUv1+g4fENGh7foOH1BRpeP6Dh+REanr+g4f0OGt5/oPHxAhoff6Hx9QgaX/+g8XkTGp//ofF9Chrf/6HpoQuaHv5D08txaHr5D01PN6Dp6T80vT2Cprd/0PT4Apoe/0LT61toev1jD0nPH6Hp+Zc9APxTgUA="]]}],
+"DelayedMouseEffectStyle"],{}},{}},Function[StatusArea[Slot[1],2224]],TagBoxNote -> "2224"],
+StyleBox["2224",{Directive[GrayLevel[0]]},StripOnInput -> False]],Function[Annotation[
+Slot[1],Style[2224,{Directive[GrayLevel[0]]}],"Tooltip"]]],EventHandlerTag[{RuleDelayed[
+"MouseClicked",FEPrivate`Set[DynamicChart`click$287424$287536,FEPrivate`Not[DynamicChart`click$287424$287536]]],PassEventsDown -> True,Method -> "Preemptive",PassEventsUp -> True}]],
+Dynamic[FEPrivate`If[DynamicChart`click$287424$287536,{{{1.0,0.0},{0.0,1.0}},{-0.0950753084265801,0.1759564881656561}},
+{{1,0},{0,1}},{{1,0},{0,1}}],RuleDelayed[TrackedSymbols,{DynamicChart`click$287424$287536}]]],
+"DelayedClickEffect"]},{Directive[EdgeForm[Directive[GrayLevel[0],Opacity[0.5]]],
+RGBColor[0.669775,0.5309575,0.351797]],TagBox[GeometricTransformationBox[TagBox[TagBox[
+TooltipBox[TagBox[{{TagBox[DynamicBox[{FEPrivate`If[CurrentValue["MouseOver"],EdgeForm[
+{GrayLevel[0.5],AbsoluteThickness[2.5],Opacity[0.66]}],{},{}],PolygonBox[CompressedData[
+"1:eJxTTMoPSmViYGBQAmIQHckjzX327Gv7pphLLWvX3d9vetL80X/tt/YCKTfYIvxu7W9m+7r9pvs7+6y0diW9TVf2zxOw+H5F7r29yW6m3Cdnz+5Pvpe+lmP9e/sFrH7xiz8f3C/YVPlI5/t7+5fpsa0Wh5bvT6y90zT3G5B/z22tasMK++DyZVei1763X3h+8epNSofsf85YW8In895e5MrqzTJ/ztrza8y4/d/5nf3BzW3Gq05cse+wsM+TVn9rv7Ve+BFDyi372BeCCi+Pv7Z3EbB8Hnj4vr01c/rGds1X9lVLvy02yn1k/+LAlWlL/V/YM75zX3353BN79fhNMyvsntmbntzarMj43F5s4zmXLb8e2zuyXvaU/f/CnuW4knF950N749VekvZHXkH5H6H8X1D1n6Hqf0DN+wY17zvUvh/2DGD7vkDd8wvqnk/2MWD3/rZ3Bbv3PdQ/f6H+eQX17z+of59Aw+M/NDzuQsPrPzS8LtlDwvM/NDx32EPC+7/9TXB4b4fGx3/7JeD4uAiNr//2FuD4uguNz3/22eD4fAKN77/Q+H61H5IefkPTw/v9ADfEHTU="]]}],
+"DelayedMouseEffectStyle"],{}},{}},Function[StatusArea[Slot[1],1560]],TagBoxNote -> "1560"],
+StyleBox["1560",{Directive[GrayLevel[0]]},StripOnInput -> False]],Function[Annotation[
+Slot[1],Style[1560,{Directive[GrayLevel[0]]}],"Tooltip"]]],EventHandlerTag[{RuleDelayed[
+"MouseClicked",FEPrivate`Set[DynamicChart`click$287432$287536,FEPrivate`Not[DynamicChart`click$287432$287536]]],PassEventsDown -> True,Method -> "Preemptive",PassEventsUp -> True}]],
+Dynamic[FEPrivate`If[DynamicChart`click$287432$287536,{{{1.0,0.0},{0.0,1.0}},{0.19443497236002813,0.04685127024270639}},
+{{1,0},{0,1}},{{1,0},{0,1}}],RuleDelayed[TrackedSymbols,{DynamicChart`click$287432$287536}]]],
+"DelayedClickEffect"]},{Directive[EdgeForm[Directive[GrayLevel[0],Opacity[0.5]]],
+RGBColor[0.723168,0.559286,0.323473]],TagBox[GeometricTransformationBox[TagBox[TagBox[
+TooltipBox[TagBox[{{TagBox[DynamicBox[{FEPrivate`If[CurrentValue["MouseOver"],EdgeForm[
+{GrayLevel[0.5],AbsoluteThickness[2.5],Opacity[0.66]}],{},{}],PolygonBox[CompressedData[
+"1:eJxTTMoPSmViYGBQAGIQ/TYsaoNy/LX9Lnsc60x/v92vKck1kXXphf2zb7r7ST97t/8/59yZ/V1H97u9yeHT7H6//9j865ePmmzevzGVacXLF+/3X85rvvA1erJ9kfdz/c5/7/e3n74tc+H6HvvFt3uPXjv9fr/sjg6dHd6n7INZyhldA9/v/5K04h33j0v29z5qfnrR/26/gGiLUvT8G/ZBlh9Xlne+3R+otFyfif+e/RnLp0lODm/2zy5w2Bg996F9y9M/jobbX+3fPS/CL5X7iX0V458jez6+2F+YavFA3ueZPQOr5Kunn5/tL/refag46oX9cS8xZd1DT/bPSQmy2234yj57u7NGR+Kj/ZE80txnz762b4q51LJ23X0o/zeU/37/bLD6X1D1n6Dm/YCa92V/Pti+b/ZMYPu+7d8Fds8XqHt+QN37EereX1D/vIP6589+HrB/X9gHg/37d/8HcHg8gobHP2h43YKG139oeJ6Bhud/aHgvhob3//3XwPFxGBof/6HxdRUaX//364Lj8wE0Pv/th8T3M2h8/90PAAFwHVQ="]]}],
+"DelayedMouseEffectStyle"],{}},{}},Function[StatusArea[Slot[1],1458]],TagBoxNote -> "1458"],
+StyleBox["1458",{Directive[GrayLevel[0]]},StripOnInput -> False]],Function[Annotation[
+Slot[1],Style[1458,{Directive[GrayLevel[0]]}],"Tooltip"]]],EventHandlerTag[{RuleDelayed[
+"MouseClicked",FEPrivate`Set[DynamicChart`click$287440$287536,FEPrivate`Not[DynamicChart`click$287440$287536]]],PassEventsDown -> True,Method -> "Preemptive",PassEventsUp -> True}]],
+Dynamic[FEPrivate`If[DynamicChart`click$287440$287536,{{{1.0,0.0},{0.0,1.0}},{0.06818688860256322,-0.18801741467933664}},
+{{1,0},{0,1}},{{1,0},{0,1}}],RuleDelayed[TrackedSymbols,{DynamicChart`click$287440$287536}]]],
+"DelayedClickEffect"]},{Directive[EdgeForm[Directive[GrayLevel[0],Opacity[0.5]]],
+RGBColor[0.813935,0.656425,0.370324]],TagBox[GeometricTransformationBox[TagBox[TagBox[
+TooltipBox[TagBox[{{TagBox[DynamicBox[{FEPrivate`If[CurrentValue["MouseOver"],EdgeForm[
+{GrayLevel[0.5],AbsoluteThickness[2.5],Opacity[0.66]}],{},{}],PolygonBox[CompressedData[
+"1:eJxTTMoPSmViYGDgA2IQLX6QtZnlw8v93v73Vl/Y+2j/mWWGdbt/Pd+/fPZTq3KDp/vfJJ3W6zr1dH8fywY1gfzn+7N2xey9kPJ4P+vDk4/FS17u/+e573LR+Qf7A/0vB86wer2/2fqU1yTFO/tl7Fa/Ntn3Zv/bsKgNyvHX9rvscawz/f0Wyn8G5f+Fqn8DVf8Hat4HqHm/ofZ9htr3E+qer1D3fIe69zvUvV/3Q/zzE+qfT/sBdFmGFg=="]]}],
+"DelayedMouseEffectStyle"],{}},{}},Function[StatusArea[Slot[1],608]],TagBoxNote -> "608"],
+StyleBox["608",{Directive[GrayLevel[0]]},StripOnInput -> False]],Function[Annotation[
+Slot[1],Style[608,{Directive[GrayLevel[0]]}],"Tooltip"]]],EventHandlerTag[{RuleDelayed[
+"MouseClicked",FEPrivate`Set[DynamicChart`click$287448$287536,FEPrivate`Not[DynamicChart`click$287448$287536]]],PassEventsDown -> True,Method -> "Preemptive",PassEventsUp -> True}]],
+Dynamic[FEPrivate`If[DynamicChart`click$287448$287536,{{{1.0,0.0},{0.0,1.0}},{-0.12121131321870515,-0.1590843095587901}},
+{{1,0},{0,1}},{{1,0},{0,1}}],RuleDelayed[TrackedSymbols,{DynamicChart`click$287448$287536}]]],
+"DelayedClickEffect"]},{Directive[EdgeForm[Directive[GrayLevel[0],Opacity[0.5]]],
+RGBColor[0.8629224999999999,0.7435205,0.49417999999999995]],TagBox[GeometricTransformationBox[
+TagBox[TagBox[TooltipBox[TagBox[{{TagBox[DynamicBox[{FEPrivate`If[CurrentValue["MouseOver"],
+EdgeForm[{GrayLevel[0.5],AbsoluteThickness[2.5],Opacity[0.66]}],{},{}],PolygonBox[
+CompressedData["1:eJxTTMoPSmViYGDgAWIQfWq+rrPCvPf7NU8flFbcdXi//ttb8vXM7/fP/v/vx5uO8/vPWG2dW6n0bv+D/vLzQh1X97N+XVrB9/fN/o1hewIuSN3eHxqSver61Nf7NzyTimaxeLBf/CBrM8uHl/u9/e+tvrD3EZT/E8r/BFX/G6r+A9S8P1DzXkPt+we17ynUPf+h7rm/H+Le/1D3Xt4PALJVcug="]]}],
+"DelayedMouseEffectStyle"],{}},{}},Function[StatusArea[Slot[1],487]],TagBoxNote -> "487"],
+StyleBox["487",{Directive[GrayLevel[0]]},StripOnInput -> False]],Function[Annotation[
+Slot[1],Style[487,{Directive[GrayLevel[0]]}],"Tooltip"]]],EventHandlerTag[{RuleDelayed[
+"MouseClicked",FEPrivate`Set[DynamicChart`click$287456$287536,FEPrivate`Not[DynamicChart`click$287456$287536]]],PassEventsDown -> True,Method -> "Preemptive",PassEventsUp -> True}]],
+Dynamic[FEPrivate`If[DynamicChart`click$287456$287536,{{{1.0,0.0},{0.0,1.0}},{-0.18496500974881414,-0.0760785460469711}},
+{{1,0},{0,1}},{{1,0},{0,1}}],RuleDelayed[TrackedSymbols,{DynamicChart`click$287456$287536}]]],
+"DelayedClickEffect"]},{Directive[EdgeForm[Directive[GrayLevel[0],Opacity[0.5]]],
+RGBColor[0.91191,0.830616,0.618036]],TagBox[GeometricTransformationBox[TagBox[TagBox[
+TooltipBox[TagBox[{{TagBox[DynamicBox[{FEPrivate`If[CurrentValue["MouseOver"],EdgeForm[
+{GrayLevel[0.5],AbsoluteThickness[2.5],Opacity[0.66]}],{},{}],PolygonBox[CompressedData[
+"1:eJxTTMoPSmViYGBgAWIQvURrPiPH6/f7/bKcyvj9Nu0/NV/XWWHe+/2apw9KK+46DOX/h/Iv74eo/w9Vf2g/AH+wIXA="]]}],
+"DelayedMouseEffectStyle"],{}},{}},Function[StatusArea[Slot[1],86]],TagBoxNote -> "86"],
+StyleBox["86",{Directive[GrayLevel[0]]},StripOnInput -> False]],Function[Annotation[
+Slot[1],Style[86,{Directive[GrayLevel[0]]}],"Tooltip"]]],EventHandlerTag[{RuleDelayed[
+"MouseClicked",FEPrivate`Set[DynamicChart`click$287464$287536,FEPrivate`Not[DynamicChart`click$287464$287536]]],PassEventsDown -> True,Method -> "Preemptive",PassEventsUp -> True}]],
+Dynamic[FEPrivate`If[DynamicChart`click$287464$287536,{{{1.0,0.0},{0.0,1.0}},{-0.19872108309608838,-0.02258165479139094}},
+{{1,0},{0,1}},{{1,0},{0,1}}],RuleDelayed[TrackedSymbols,{DynamicChart`click$287464$287536}]]],
+"DelayedClickEffect"]},{Directive[EdgeForm[Directive[GrayLevel[0],Opacity[0.5]]],
+RGBColor[0.96020475,0.9570705,0.9039142499999999]],TagBox[GeometricTransformationBox[
+TagBox[TagBox[TooltipBox[TagBox[{{TagBox[DynamicBox[{FEPrivate`If[CurrentValue["MouseOver"],
+EdgeForm[{GrayLevel[0.5],AbsoluteThickness[2.5],Opacity[0.66]}],{},{}],PolygonBox[
+CompressedData["1:eJxTTMoPSmViYGBgAWIQDQEf9rPHiBirLVu4Z4nWfEaO1+/3+2U5lfH7bdoP4f+H8g/th2o4AFG/cQ8AYFIYkQ=="]]}],
+"DelayedMouseEffectStyle"],{}},{}},Function[StatusArea[Slot[1],74]],TagBoxNote -> "74"],
+StyleBox["74",{Directive[GrayLevel[0]]},StripOnInput -> False]],Function[Annotation[
+Slot[1],Style[74,{Directive[GrayLevel[0]]}],"Tooltip"]]],EventHandlerTag[{RuleDelayed[
+"MouseClicked",FEPrivate`Set[DynamicChart`click$287472$287536,FEPrivate`Not[DynamicChart`click$287472$287536]]],PassEventsDown -> True,Method -> "Preemptive",PassEventsUp -> True}]],
+Dynamic[FEPrivate`If[DynamicChart`click$287472$287536,{{{1.0,0.0},{0.0,1.0}},{-0.19987197608246635,-0.007154940732808379}},
+{{1,0},{0,1}},{{1,0},{0,1}}],RuleDelayed[TrackedSymbols,{DynamicChart`click$287472$287536}]]],
+"DelayedClickEffect"]}}}}},{}},{{}}}},{{{{TagBox[GeometricTransformationBox[TagBox[
+TagBox[TooltipBox[TagBox[{{},{{{},{InsetBox[FormBox[StyleBox[RowBox[{"34.230000000000004`"," ","\"%\""}],
+{Directive[GrayLevel[0]]},StripOnInput -> False],TraditionalForm],{-0.7130648131993507,1.3196736612424207}]}},{{{Directive[
+Thickness[0.002],Opacity[1],GrayLevel[0]],LineBox[CompressedData["1:eJxTTMoPSmNiYGAoZgESPpnFJai8omlH8ndPzHm3v4irOq5RV/2PPZr8m4ra3m27P+wvimxvdHz6/Z89AL1MHOg="]],LineBox[
+CompressedData["1:eJxTTMoPSmNiYGAoZgESPpnFJai8ojcVtb3bdn/YXxTZ3uj49Ps/ezR5+TUbDrx89xkhDwAPgh9G"]]},{Directive[
+Opacity[1],GrayLevel[0]],DiskBox[{-0.950753084265801,1.7595648816565608},0.03333333333333333]},InsetBox[
+FormBox[StyleBox[RowBox[{"{",RowBox[{RowBox[{"3"," ","\"P\""}],",",RowBox[{"3"," ","\"N\""}]}],"}"}],
+{Directive[GrayLevel[0]]},StripOnInput -> False],TraditionalForm],{-1.2838585160630132,1.9355213698222171},
+ImageScaled[{1,Rational[1,2]}]]}}}},Function[StatusArea[Slot[1],2224]],TagBoxNote -> "2224"],
+StyleBox["2224",{Directive[GrayLevel[0]]},StripOnInput -> False]],Function[Annotation[
+Slot[1],Style[2224,{Directive[GrayLevel[0]]}],"Tooltip"]]],EventHandlerTag[{RuleDelayed[
+"MouseClicked",FEPrivate`Set[DynamicChart`click$287424$287536,FEPrivate`Not[DynamicChart`click$287424$287536]]],PassEventsDown -> True,Method -> "Preemptive",PassEventsUp -> True}]],
+Dynamic[FEPrivate`If[DynamicChart`click$287424$287536,{{{1.0,0.0},{0.0,1.0}},{-0.0950753084265801,0.1759564881656561}},
+{{1,0},{0,1}},{{1,0},{0,1}}],RuleDelayed[TrackedSymbols,{DynamicChart`click$287424$287536}]]],
+"DelayedClickEffect"],TagBox[GeometricTransformationBox[TagBox[TagBox[TooltipBox[
+TagBox[{{},{{{},{InsetBox[FormBox[StyleBox[RowBox[{"24.01`"," ","\"%\""}],{Directive[
+GrayLevel[0]]},StripOnInput -> False],TraditionalForm],{1.458262292700211,0.3513845268202979}]}},{{{Directive[
+Thickness[0.002],Opacity[1],GrayLevel[0]],LineBox[CompressedData["1:eJxTTMoPSmNiYGAoZgESPpnFJai8op8z1pbwyfy3LxK5snqzzJ+79mjye9dOUrOWYXQouvGcZdqd2gf2AKp4Gp0="]],LineBox[
+CompressedData["1:eJxTTMoPSmNiYGAoZgESPpnFJai8or1rJ6lZyzA6FN14zjLtTu0DezT5cHedA1e2MiHkAYA3Gi8="]]},{Directive[
+Opacity[1],GrayLevel[0]],DiskBox[{1.9443497236002811,0.4685127024270639},0.03333333333333333]},InsetBox[
+FormBox[StyleBox[RowBox[{"{",RowBox[{RowBox[{"2"," ","\"P\""}],",",RowBox[{"4"," ","\"N\""}]}],"}"}],
+{Directive[GrayLevel[0]]},StripOnInput -> False],TraditionalForm],{2.416558684904321,0.5153639726697703},
+ImageScaled[{0,Rational[1,2]}]]}}}},Function[StatusArea[Slot[1],1560]],TagBoxNote -> "1560"],
+StyleBox["1560",{Directive[GrayLevel[0]]},StripOnInput -> False]],Function[Annotation[
+Slot[1],Style[1560,{Directive[GrayLevel[0]]}],"Tooltip"]]],EventHandlerTag[{RuleDelayed[
+"MouseClicked",FEPrivate`Set[DynamicChart`click$287432$287536,FEPrivate`Not[DynamicChart`click$287432$287536]]],PassEventsDown -> True,Method -> "Preemptive",PassEventsUp -> True}]],
+Dynamic[FEPrivate`If[DynamicChart`click$287432$287536,{{{1.0,0.0},{0.0,1.0}},{0.19443497236002813,0.04685127024270639}},
+{{1,0},{0,1}},{{1,0},{0,1}}],RuleDelayed[TrackedSymbols,{DynamicChart`click$287432$287536}]]],
+"DelayedClickEffect"],TagBox[GeometricTransformationBox[TagBox[TagBox[TooltipBox[
+TagBox[{{},{{{},{InsetBox[FormBox[StyleBox[RowBox[{"22.44`"," ","\"%\""}],{Directive[
+GrayLevel[0]]},StripOnInput -> False],TraditionalForm],{0.5114016645192242,-1.4101306100950248}]}},{{{Directive[
+Thickness[0.002],Opacity[1],GrayLevel[0]],LineBox[CompressedData["1:eJxTTMoPSmNiYGAoZgESPpnFJai8IsvqLZvuXXxqX8RqVFJjKPpvP5p8T/ux7yUML+yLmqWLWVZ0MxwAAKMRGgg="]],LineBox[
+CompressedData["1:eJxTTMoPSmNiYGAoZgESPpnFJai8op72Y99LGF7YFzVLF7Os6GY4gCb/6a1O3O20dwh5AJLWGdA="]]},{Directive[
+Opacity[1],GrayLevel[0]],DiskBox[{0.6818688860256322,-1.8801741467933664},0.03333333333333333]},InsetBox[
+FormBox[StyleBox[RowBox[{"{",RowBox[{RowBox[{"4"," ","\"P\""}],",",RowBox[{"2"," ","\"N\""}]}],"}"}],
+{Directive[GrayLevel[0]]},StripOnInput -> False],TraditionalForm],{0.9773305300692208,-2.068191561472703},
+ImageScaled[{0,Rational[1,2]}]]}}}},Function[StatusArea[Slot[1],1458]],TagBoxNote -> "1458"],
+StyleBox["1458",{Directive[GrayLevel[0]]},StripOnInput -> False]],Function[Annotation[
+Slot[1],Style[1458,{Directive[GrayLevel[0]]}],"Tooltip"]]],EventHandlerTag[{RuleDelayed[
+"MouseClicked",FEPrivate`Set[DynamicChart`click$287440$287536,FEPrivate`Not[DynamicChart`click$287440$287536]]],PassEventsDown -> True,Method -> "Preemptive",PassEventsUp -> True}]],
+Dynamic[FEPrivate`If[DynamicChart`click$287440$287536,{{{1.0,0.0},{0.0,1.0}},{0.06818688860256322,-0.18801741467933664}},
+{{1,0},{0,1}},{{1,0},{0,1}}],RuleDelayed[TrackedSymbols,{DynamicChart`click$287440$287536}]]],
+"DelayedClickEffect"],TagBox[GeometricTransformationBox[TagBox[TagBox[TooltipBox[
+TagBox[{{},{{{},{InsetBox[FormBox[StyleBox[RowBox[{"9.36`"," ","\"%\""}],{Directive[
+GrayLevel[0]]},StripOnInput -> False],TraditionalForm],{-0.9090848491402886,-1.1931323216909258}]}},{{{Directive[
+Thickness[0.002],Opacity[1],GrayLevel[0]],LineBox[CompressedData["1:eJxTTMoPSmNiYGAoZgESPpnFJai8oqxdMXsvpHzeX8T68ORj8ZKf+9Hkb8+sZ/YJ/bq/aOeq7w82//+9HwD37B9n"]],LineBox[
+CompressedData["1:eJxTTMoPSmNiYGAoZgESPpnFJai8otsz65l9Qr/uL9q56vuDzf9/70eT5zu7yay+4wdCHgAW2iCW"]]},{Directive[
+Opacity[1],GrayLevel[0]],DiskBox[{-1.2121131321870515,-1.590843095587901},0.03333333333333333]},InsetBox[
+FormBox[StyleBox[RowBox[{"{",RowBox[{"\"P\"",",",RowBox[{"5"," ","\"N\""}]}],"}"}],
+{Directive[GrayLevel[0]]},StripOnInput -> False],TraditionalForm],{-1.5818089706932388,-1.749927405146691},
+ImageScaled[{1,Rational[1,2]}]]}}}},Function[StatusArea[Slot[1],608]],TagBoxNote -> "608"],
+StyleBox["608",{Directive[GrayLevel[0]]},StripOnInput -> False]],Function[Annotation[
+Slot[1],Style[608,{Directive[GrayLevel[0]]}],"Tooltip"]]],EventHandlerTag[{RuleDelayed[
+"MouseClicked",FEPrivate`Set[DynamicChart`click$287448$287536,FEPrivate`Not[DynamicChart`click$287448$287536]]],PassEventsDown -> True,Method -> "Preemptive",PassEventsUp -> True}]],
+Dynamic[FEPrivate`If[DynamicChart`click$287448$287536,{{{1.0,0.0},{0.0,1.0}},{-0.12121131321870515,-0.1590843095587901}},
+{{1,0},{0,1}},{{1,0},{0,1}}],RuleDelayed[TrackedSymbols,{DynamicChart`click$287448$287536}]]],
+"DelayedClickEffect"],TagBox[GeometricTransformationBox[TagBox[TagBox[TooltipBox[
+TagBox[{{},{{{},{InsetBox[FormBox[StyleBox[RowBox[{"7.5`"," ","\"%\""}],{Directive[
+GrayLevel[0]]},StripOnInput -> False],TraditionalForm],{-1.387237573116106,-0.5705890953522832}]}},{{{Directive[
+Thickness[0.002],Opacity[1],GrayLevel[0]],LineBox[CompressedData["1:eJxTTMoPSmNiYGAoZgESPpnFJai8oknCMZu1ZvzdX7R59f/9UREv9qPJf7fl8XzixnCgaA1nGtv046/2AwDNDRvA"]],LineBox[
+CompressedData["1:eJxTTMoPSmNiYGAoZgESPpnFJai8ou+2PJ5P3BgOFK3hTGObfvzVfjT5ideXPqp9wIiQBwCRzhtO"]]},{Directive[
+Opacity[1],GrayLevel[0]],DiskBox[{-1.8496500974881411,-0.760785460469711},0.03333333333333333]},InsetBox[
+FormBox[StyleBox[RowBox[{"{",RowBox[{RowBox[{"5"," ","\"P\""}],",","\"N\""}],"}"}],
+{Directive[GrayLevel[0]]},StripOnInput -> False],TraditionalForm],{-2.3086011111364813,-0.8368640065166821},
+ImageScaled[{1,Rational[1,2]}]]}}}},Function[StatusArea[Slot[1],487]],TagBoxNote -> "487"],
+StyleBox["487",{Directive[GrayLevel[0]]},StripOnInput -> False]],Function[Annotation[
+Slot[1],Style[487,{Directive[GrayLevel[0]]}],"Tooltip"]]],EventHandlerTag[{RuleDelayed[
+"MouseClicked",FEPrivate`Set[DynamicChart`click$287456$287536,FEPrivate`Not[DynamicChart`click$287456$287536]]],PassEventsDown -> True,Method -> "Preemptive",PassEventsUp -> True}]],
+Dynamic[FEPrivate`If[DynamicChart`click$287456$287536,{{{1.0,0.0},{0.0,1.0}},{-0.18496500974881414,-0.0760785460469711}},
+{{1,0},{0,1}},{{1,0},{0,1}}],RuleDelayed[TrackedSymbols,{DynamicChart`click$287456$287536}]]],
+"DelayedClickEffect"],TagBox[GeometricTransformationBox[TagBox[TagBox[TooltipBox[
+TagBox[{{},{{{},{InsetBox[FormBox[StyleBox[RowBox[{"1.32`"," ","\"%\""}],{Directive[
+GrayLevel[0]]},StripOnInput -> False],TraditionalForm],{-1.4904081232206627,-0.16936241093543203}]}},{{{Directive[
+Thickness[0.002],Opacity[1],GrayLevel[0]],LineBox[CompressedData["1:eJxTTMoPSmNiYGAoZgESPpnFJai8osR9k6fOPf1/f5HBKfGGvudn9qPJ+zsJ3j9Zw3igaM7EBrXm0+f3AwDkchyy"]],LineBox[
+CompressedData["1:eJxTTMoPSmNiYGAoZgESPpnFJai8In8nwfsnaxgPFM2Z2KDWfPr8fjT5l7dXVSSLMSPkAaHgG4U="]]},{Directive[
+Opacity[1],GrayLevel[0]],DiskBox[{-1.9872108309608836,-0.22581654791390937},0.03333333333333333]},InsetBox[
+FormBox[StyleBox[RowBox[{"{",RowBox[{"\"0P\"",",",RowBox[{"6"," ","\"N\""}]}],"}"}],
+{Directive[GrayLevel[0]]},StripOnInput -> False],TraditionalForm],{-2.4654203472954075,-0.24839820270530033},
+ImageScaled[{1,Rational[1,2]}]]}}}},Function[StatusArea[Slot[1],86]],TagBoxNote -> "86"],
+StyleBox["86",{Directive[GrayLevel[0]]},StripOnInput -> False]],Function[Annotation[
+Slot[1],Style[86,{Directive[GrayLevel[0]]}],"Tooltip"]]],EventHandlerTag[{RuleDelayed[
+"MouseClicked",FEPrivate`Set[DynamicChart`click$287464$287536,FEPrivate`Not[DynamicChart`click$287464$287536]]],PassEventsDown -> True,Method -> "Preemptive",PassEventsUp -> True}]],
+Dynamic[FEPrivate`If[DynamicChart`click$287464$287536,{{{1.0,0.0},{0.0,1.0}},{-0.19872108309608838,-0.02258165479139094}},
+{{1,0},{0,1}},{{1,0},{0,1}}],RuleDelayed[TrackedSymbols,{DynamicChart`click$287464$287536}]]],
+"DelayedClickEffect"],TagBox[GeometricTransformationBox[TagBox[TagBox[TooltipBox[
+TagBox[{{},{{{},{InsetBox[FormBox[StyleBox[RowBox[{"1.1400000000000001`"," ","\"%\""}],
+{Directive[GrayLevel[0]]},StripOnInput -> False],TraditionalForm],{-1.4990398206184976,-0.053662055496062844}]}},{{{Directive[
+Thickness[0.002],Opacity[1],GrayLevel[0]],LineBox[CompressedData["1:eJxTTMoPSmNiYGAoZgESPpnFJai8IsVjmZMO/vq/v2jB1tY7/IGb9qPJ/9TZ5bx9GuOBor9VP298V92yHwD16x5n"]],LineBox[
+CompressedData["1:eJxTTMoPSmNiYGAoZgESPpnFJai8op86u5y3T2M8UPS36ueN76pb9qPJTz4WfDfAgBkhDwDx/R4o"]]},{Directive[
+Opacity[1],GrayLevel[0]],DiskBox[{-1.9987197608246634,-0.07154940732808379},0.03333333333333333]},InsetBox[
+FormBox[StyleBox[RowBox[{"{",RowBox[{RowBox[{"6"," ","\"P\""}],",","\"0N\""}],"}"}],
+{Directive[GrayLevel[0]]},StripOnInput -> False],TraditionalForm],{-2.4785405273401167,-0.07870434806089217},
+ImageScaled[{1,Rational[1,2]}]]}}}},Function[StatusArea[Slot[1],74]],TagBoxNote -> "74"],
+StyleBox["74",{Directive[GrayLevel[0]]},StripOnInput -> False]],Function[Annotation[
+Slot[1],Style[74,{Directive[GrayLevel[0]]}],"Tooltip"]]],EventHandlerTag[{RuleDelayed[
+"MouseClicked",FEPrivate`Set[DynamicChart`click$287472$287536,FEPrivate`Not[DynamicChart`click$287472$287536]]],PassEventsDown -> True,Method -> "Preemptive",PassEventsUp -> True}]],
+Dynamic[FEPrivate`If[DynamicChart`click$287472$287536,{{{1.0,0.0},{0.0,1.0}},{-0.19987197608246635,-0.007154940732808379}},
+{{1,0},{0,1}},{{1,0},{0,1}}],RuleDelayed[TrackedSymbols,{DynamicChart`click$287472$287536}]]],
+"DelayedClickEffect"]},{}}},{}},{},{}},RuleDelayed[DynamicModuleValues,{}]],{{{},{}}},{{{{},{},{},{}}},{}}},
+{DisplayFunction -> Identity,ContentSelectable -> False,GridLinesStyle -> Directive[
+GrayLevel[0.5,0.4]],LabelStyle -> Directive[GrayLevel[0]],PlotLabel -> FormBox["\"Cz\:0119sto\:015b\[CAcute] parzystych(P) i\\n nieparzystych(N) \\n liczb w losowaniu: \"",
+TraditionalForm],PlotRange -> {{All,All},{All,All}},PlotRangePadding -> Scaled[0.05]},
+ExpressionUUID -> "aba4d88b-3232-448f-bfa6-a9cc9d55a9cb"],StandardForm],"Output",
+CellLabel -> "Out[35]= ",ExpressionUUID -> "6ce1274f-3010-4534-bdf6-9663090ce636"]},
+Open],ExpressionUUID -> "195da954-e3bf-48bb-ba9a-9db8146646b8"],Cell[
+BoxData[""],
+"Input",ExpressionUUID -> "4f31f3fc-73b4-450c-b72a-81111ccab292"],Cell[
+CellGroupData[
+{Cell[
+BoxData[RowBox[{"GraphicsRow","[",RowBox[{RowBox[{"{",RowBox[{"a",",","b"}],"}"}],",",RowBox[
+{"Frame","\[Rule]","All"}]}],"]"}]],"Input",CellLabel -> "In[36]:= ",ExpressionUUID -> "19077116-9b10-4223-b6a6-94391a5beb76"],Cell[
+BoxData[
+GraphicsBox[{{},{{InsetBox[GraphicsBox[{{Opacity[0],PointBox[CompressedData["1:eJxTTMoPSmNiYGAoZgESPpnFJai8otqNT8S96y7aFzFAAZp8WCgImDjA5QHj5xDz"]]},{{},{Directive[
+EdgeForm[Directive[Thickness[Small],Opacity[0.5599999999999999]]],RGBColor[0.982864,
+0.7431472,0.3262672]],{{Directive[EdgeForm[Directive[Thickness[Small],Opacity[0.5599999999999999]]],
+RGBColor[0.976303,0.999222,0.999207]],TagBox[DynamicBox[{FEPrivate`If[CurrentValue[
+"MouseOver"],EdgeForm[{GrayLevel[0.5],AbsoluteThickness[1.5],Opacity[0.66]}],{},{}],RectangleBox[
+{0.6666666666666666,0.0},{1.3333333333333335,112.0},"RoundingRadius" -> 0]}],"DelayedMouseEffectStyle"]},{Directive[
+EdgeForm[Directive[Thickness[Small],Opacity[0.5599999999999999]]],RGBColor[0.8465933333333333,
+0.7144886666666667,0.45289466666666667]],TagBox[DynamicBox[{FEPrivate`If[CurrentValue[
+"MouseOver"],EdgeForm[{GrayLevel[0.5],AbsoluteThickness[1.5],Opacity[0.66]}],{},{}],RectangleBox[
+{1.6666666666666667,0.0},{2.3333333333333335,109.0},"RoundingRadius" -> 0]}],"DelayedMouseEffectStyle"]},{Directive[
+EdgeForm[Directive[Thickness[Small],Opacity[0.5599999999999999]]],RGBColor[0.8465933333333333,
+0.7144886666666667,0.45289466666666667]],TagBox[DynamicBox[{FEPrivate`If[CurrentValue[
+"MouseOver"],EdgeForm[{GrayLevel[0.5],AbsoluteThickness[1.5],Opacity[0.66]}],{},{}],RectangleBox[
+{2.666666666666667,0.0},{3.333333333333334,109.0},"RoundingRadius" -> 0]}],"DelayedMouseEffectStyle"]},{Directive[
+EdgeForm[Directive[Thickness[Small],Opacity[0.5599999999999999]]],RGBColor[0.7937645555555556,
+0.6348385555555556,0.35991266666666666]],TagBox[DynamicBox[{FEPrivate`If[CurrentValue[
+"MouseOver"],EdgeForm[{GrayLevel[0.5],AbsoluteThickness[1.5],Opacity[0.66]}],{},{}],RectangleBox[
+{3.6666666666666674,0.0},{4.333333333333334,108.0},"RoundingRadius" -> 0]}],"DelayedMouseEffectStyle"]},{Directive[
+EdgeForm[Directive[Thickness[Small],Opacity[0.5599999999999999]]],RGBColor[0.7937645555555556,
+0.6348385555555556,0.35991266666666666]],TagBox[DynamicBox[{FEPrivate`If[CurrentValue[
+"MouseOver"],EdgeForm[{GrayLevel[0.5],AbsoluteThickness[1.5],Opacity[0.66]}],{},{}],RectangleBox[
+{4.666666666666667,0.0},{5.333333333333334,108.0},"RoundingRadius" -> 0]}],"DelayedMouseEffectStyle"]},{Directive[
+EdgeForm[Directive[Thickness[Small],Opacity[0.5599999999999999]]],RGBColor[0.7433384444444444,
+0.5808724444444444,0.33388433333333334]],TagBox[DynamicBox[{FEPrivate`If[CurrentValue[
+"MouseOver"],EdgeForm[{GrayLevel[0.5],AbsoluteThickness[1.5],Opacity[0.66]}],{},{}],RectangleBox[
+{5.666666666666667,0.0},{6.333333333333334,107.0},"RoundingRadius" -> 0]}],"DelayedMouseEffectStyle"]},{Directive[
+EdgeForm[Directive[Thickness[Small],Opacity[0.5599999999999999]]],RGBColor[0.7433384444444444,
+0.5808724444444444,0.33388433333333334]],TagBox[DynamicBox[{FEPrivate`If[CurrentValue[
+"MouseOver"],EdgeForm[{GrayLevel[0.5],AbsoluteThickness[1.5],Opacity[0.66]}],{},{}],RectangleBox[
+{6.666666666666667,0.0},{7.333333333333334,107.0},"RoundingRadius" -> 0]}],"DelayedMouseEffectStyle"]},{Directive[
+EdgeForm[Directive[Thickness[Small],Opacity[0.5599999999999999]]],RGBColor[0.6875726666666667,
+0.5404003333333333,0.34235566666666667]],TagBox[DynamicBox[{FEPrivate`If[CurrentValue[
+"MouseOver"],EdgeForm[{GrayLevel[0.5],AbsoluteThickness[1.5],Opacity[0.66]}],{},{}],RectangleBox[
+{7.666666666666667,0.0},{8.333333333333334,106.0},"RoundingRadius" -> 0]}],"DelayedMouseEffectStyle"]},{Directive[
+EdgeForm[Directive[Thickness[Small],Opacity[0.5599999999999999]]],RGBColor[0.6875726666666667,
+0.5404003333333333,0.34235566666666667]],TagBox[DynamicBox[{FEPrivate`If[CurrentValue[
+"MouseOver"],EdgeForm[{GrayLevel[0.5],AbsoluteThickness[1.5],Opacity[0.66]}],{},{}],RectangleBox[
+{8.666666666666668,0.0},{9.333333333333334,106.0},"RoundingRadius" -> 0]}],"DelayedMouseEffectStyle"]},{Directive[
+EdgeForm[Directive[Thickness[Small],Opacity[0.5599999999999999]]],RGBColor[0.6282471111111111,
+0.5089242222222222,0.3738267777777778]],TagBox[DynamicBox[{FEPrivate`If[CurrentValue[
+"MouseOver"],EdgeForm[{GrayLevel[0.5],AbsoluteThickness[1.5],Opacity[0.66]}],{},{}],RectangleBox[
+{9.666666666666668,0.0},{10.333333333333334,105.0},"RoundingRadius" -> 0]}],"DelayedMouseEffectStyle"]},{Directive[
+EdgeForm[Directive[Thickness[Small],Opacity[0.5599999999999999]]],RGBColor[0.6282471111111111,
+0.5089242222222222,0.3738267777777778]],TagBox[DynamicBox[{FEPrivate`If[CurrentValue[
+"MouseOver"],EdgeForm[{GrayLevel[0.5],AbsoluteThickness[1.5],Opacity[0.66]}],{},{}],RectangleBox[
+{10.666666666666668,0.0},{11.333333333333334,105.0},"RoundingRadius" -> 0]}],"DelayedMouseEffectStyle"]},{Directive[
+EdgeForm[Directive[Thickness[Small],Opacity[0.5599999999999999]]],RGBColor[0.6282471111111111,
+0.5089242222222222,0.3738267777777778]],TagBox[DynamicBox[{FEPrivate`If[CurrentValue[
+"MouseOver"],EdgeForm[{GrayLevel[0.5],AbsoluteThickness[1.5],Opacity[0.66]}],{},{}],RectangleBox[
+{11.666666666666668,0.0},{12.333333333333334,105.0},"RoundingRadius" -> 0]}],"DelayedMouseEffectStyle"]},{Directive[
+EdgeForm[Directive[Thickness[Small],Opacity[0.5599999999999999]]],RGBColor[0.6282471111111111,
+0.5089242222222222,0.3738267777777778]],TagBox[DynamicBox[{FEPrivate`If[CurrentValue[
+"MouseOver"],EdgeForm[{GrayLevel[0.5],AbsoluteThickness[1.5],Opacity[0.66]}],{},{}],RectangleBox[
+{12.666666666666668,0.0},{13.333333333333334,105.0},"RoundingRadius" -> 0]}],"DelayedMouseEffectStyle"]},{Directive[
+EdgeForm[Directive[Thickness[Small],Opacity[0.5599999999999999]]],RGBColor[0.5230264444444445,
+0.42620633333333335,0.33479655555555554]],TagBox[DynamicBox[{FEPrivate`If[CurrentValue[
+"MouseOver"],EdgeForm[{GrayLevel[0.5],AbsoluteThickness[1.5],Opacity[0.66]}],{},{}],RectangleBox[
+{13.666666666666668,0.0},{14.333333333333334,104.0},"RoundingRadius" -> 0]}],"DelayedMouseEffectStyle"]},{Directive[
+EdgeForm[Directive[Thickness[Small],Opacity[0.5599999999999999]]],RGBColor[0.5230264444444445,
+0.42620633333333335,0.33479655555555554]],TagBox[DynamicBox[{FEPrivate`If[CurrentValue[
+"MouseOver"],EdgeForm[{GrayLevel[0.5],AbsoluteThickness[1.5],Opacity[0.66]}],{},{}],RectangleBox[
+{14.666666666666668,0.0},{15.333333333333334,104.0},"RoundingRadius" -> 0]}],"DelayedMouseEffectStyle"]},{Directive[
+EdgeForm[Directive[Thickness[Small],Opacity[0.5599999999999999]]],RGBColor[0.5230264444444445,
+0.42620633333333335,0.33479655555555554]],TagBox[DynamicBox[{FEPrivate`If[CurrentValue[
+"MouseOver"],EdgeForm[{GrayLevel[0.5],AbsoluteThickness[1.5],Opacity[0.66]}],{},{}],RectangleBox[
+{15.666666666666668,0.0},{16.333333333333336,104.0},"RoundingRadius" -> 0]}],"DelayedMouseEffectStyle"]},{Directive[
+EdgeForm[Directive[Thickness[Small],Opacity[0.5599999999999999]]],RGBColor[0.5230264444444445,
+0.42620633333333335,0.33479655555555554]],TagBox[DynamicBox[{FEPrivate`If[CurrentValue[
+"MouseOver"],EdgeForm[{GrayLevel[0.5],AbsoluteThickness[1.5],Opacity[0.66]}],{},{}],RectangleBox[
+{16.666666666666668,0.0},{17.333333333333336,104.0},"RoundingRadius" -> 0]}],"DelayedMouseEffectStyle"]},{Directive[
+EdgeForm[Directive[Thickness[Small],Opacity[0.5599999999999999]]],RGBColor[0.406332,
+0.330678,0.278141]],TagBox[DynamicBox[{FEPrivate`If[CurrentValue["MouseOver"],EdgeForm[
+{GrayLevel[0.5],AbsoluteThickness[1.5],Opacity[0.66]}],{},{}],RectangleBox[{17.666666666666668,0.0},
+{18.333333333333336,103.0},"RoundingRadius" -> 0]}],"DelayedMouseEffectStyle"]},{Directive[
+EdgeForm[Directive[Thickness[Small],Opacity[0.5599999999999999]]],RGBColor[0.406332,
+0.330678,0.278141]],TagBox[DynamicBox[{FEPrivate`If[CurrentValue["MouseOver"],EdgeForm[
+{GrayLevel[0.5],AbsoluteThickness[1.5],Opacity[0.66]}],{},{}],RectangleBox[{18.666666666666668,0.0},
+{19.333333333333336,103.0},"RoundingRadius" -> 0]}],"DelayedMouseEffectStyle"]},{Directive[
+EdgeForm[Directive[Thickness[Small],Opacity[0.5599999999999999]]],RGBColor[0.406332,
+0.330678,0.278141]],TagBox[DynamicBox[{FEPrivate`If[CurrentValue["MouseOver"],EdgeForm[
+{GrayLevel[0.5],AbsoluteThickness[1.5],Opacity[0.66]}],{},{}],RectangleBox[{19.666666666666668,0.0},
+{20.333333333333336,103.0},"RoundingRadius" -> 0]}],"DelayedMouseEffectStyle"]}}},{},{}},{},{InsetBox[
+FormBox[StyleBox[StyleBox[GraphicsBox[{{},{{InsetBox[BoxData[FormBox["9",TraditionalForm]],
+{8.4,-9.066666666666666},{Center,Center},{16.000000000000004,17.0}]},{InsetBox[BoxData[
+FormBox["18",TraditionalForm]],{8.4,-27.199999999999996},{Center,Center},{16.000000000000004,16.999999999999996}]}},{}},
+ImageSize -> 20,{PlotRangePadding -> {6,5},PlotRange -> {{0,16.8},{-36.266666666666666,0}}},
+ImageSize -> 20],Medium,GrayLevel[0],StripOnInput -> False],{GrayLevel[0]},StripOnInput -> False],
+TraditionalForm],Offset[{0,4},{1.0,112.0}],ImageScaled[{0.5,0}]],InsetBox[FormBox[
+StyleBox[StyleBox["112",Tiny,GrayLevel[0],StripOnInput -> False],{GrayLevel[0]},StripOnInput -> False],
+TraditionalForm],{1.0,56.0},ImageScaled[{0.5,0.5}]],InsetBox[FormBox[StyleBox[StyleBox[
+GraphicsBox[{{},{{InsetBox[BoxData[FormBox["6",TraditionalForm]],{8.4,-9.066666666666666},
+{Center,Center},{16.000000000000004,17.0}]},{InsetBox[BoxData[FormBox["42",TraditionalForm]],
+{8.4,-27.199999999999996},{Center,Center},{16.000000000000004,16.999999999999996}]}},{}},
+ImageSize -> 20,{PlotRangePadding -> {6,5},PlotRange -> {{0,16.8},{-36.266666666666666,0}}},
+ImageSize -> 20],Medium,GrayLevel[0],StripOnInput -> False],{GrayLevel[0]},StripOnInput -> False],
+TraditionalForm],Offset[{0,4},{2.0,109.0}],ImageScaled[{0.5,0}]],InsetBox[FormBox[
+StyleBox[StyleBox["109",Tiny,GrayLevel[0],StripOnInput -> False],{GrayLevel[0]},StripOnInput -> False],
+TraditionalForm],{2.0,54.5},ImageScaled[{0.5,0.5}]],InsetBox[FormBox[StyleBox[StyleBox[
+GraphicsBox[{{},{{InsetBox[BoxData[FormBox["1",TraditionalForm]],{8.4,-9.066666666666666},
+{Center,Center},{16.000000000000004,17.0}]},{InsetBox[BoxData[FormBox["17",TraditionalForm]],
+{8.4,-27.199999999999996},{Center,Center},{16.000000000000004,16.999999999999996}]}},{}},
+ImageSize -> 20,{PlotRangePadding -> {6,5},PlotRange -> {{0,16.8},{-36.266666666666666,0}}},
+ImageSize -> 20],Medium,GrayLevel[0],StripOnInput -> False],{GrayLevel[0]},StripOnInput -> False],
+TraditionalForm],Offset[{0,4},{3.0000000000000004,109.0}],ImageScaled[{0.5,0}]],InsetBox[
+FormBox[StyleBox[StyleBox["109",Tiny,GrayLevel[0],StripOnInput -> False],{GrayLevel[
+0]},StripOnInput -> False],TraditionalForm],{3.0000000000000004,54.5},ImageScaled[
+{0.5,0.5}]],InsetBox[FormBox[StyleBox[StyleBox[GraphicsBox[{{},{{InsetBox[BoxData[
+FormBox["17",TraditionalForm]],{8.4,-9.066666666666666},{Center,Center},{16.000000000000004,17.0}]},{InsetBox[
+BoxData[FormBox["21",TraditionalForm]],{8.4,-27.199999999999996},{Center,Center},
+{16.000000000000004,16.999999999999996}]}},{}},ImageSize -> 20,{PlotRangePadding -> {6,5},PlotRange -> {{0,16.8},{-36.266666666666666,0}}},
+ImageSize -> 20],Medium,GrayLevel[0],StripOnInput -> False],{GrayLevel[0]},StripOnInput -> False],
+TraditionalForm],Offset[{0,4},{4.000000000000001,108.0}],ImageScaled[{0.5,0}]],InsetBox[
+FormBox[StyleBox[StyleBox["108",Tiny,GrayLevel[0],StripOnInput -> False],{GrayLevel[
+0]},StripOnInput -> False],TraditionalForm],{4.000000000000001,54.0},ImageScaled[
+{0.5,0.5}]],InsetBox[FormBox[StyleBox[StyleBox[GraphicsBox[{{},{{InsetBox[BoxData[
+FormBox["6",TraditionalForm]],{8.4,-9.066666666666666},{Center,Center},{16.000000000000004,17.0}]},{InsetBox[
+BoxData[FormBox["16",TraditionalForm]],{8.4,-27.199999999999996},{Center,Center},
+{16.000000000000004,16.999999999999996}]}},{}},ImageSize -> 20,{PlotRangePadding -> {6,5},PlotRange -> {{0,16.8},{-36.266666666666666,0}}},
+ImageSize -> 20],Medium,GrayLevel[0],StripOnInput -> False],{GrayLevel[0]},StripOnInput -> False],
+TraditionalForm],Offset[{0,4},{5.0,108.0}],ImageScaled[{0.5,0}]],InsetBox[FormBox[
+StyleBox[StyleBox["108",Tiny,GrayLevel[0],StripOnInput -> False],{GrayLevel[0]},StripOnInput -> False],
+TraditionalForm],{5.0,54.0},ImageScaled[{0.5,0.5}]],InsetBox[FormBox[StyleBox[StyleBox[
+GraphicsBox[{{},{{InsetBox[BoxData[FormBox["27",TraditionalForm]],{8.4,-9.066666666666666},
+{Center,Center},{16.000000000000004,17.0}]},{InsetBox[BoxData[FormBox["34",TraditionalForm]],
+{8.4,-27.199999999999996},{Center,Center},{16.000000000000004,16.999999999999996}]}},{}},
+ImageSize -> 20,{PlotRangePadding -> {6,5},PlotRange -> {{0,16.8},{-36.266666666666666,0}}},
+ImageSize -> 20],Medium,GrayLevel[0],StripOnInput -> False],{GrayLevel[0]},StripOnInput -> False],
+TraditionalForm],Offset[{0,4},{6.0,107.0}],ImageScaled[{0.5,0}]],InsetBox[FormBox[
+StyleBox[StyleBox["107",Tiny,GrayLevel[0],StripOnInput -> False],{GrayLevel[0]},StripOnInput -> False],
+TraditionalForm],{6.0,53.5},ImageScaled[{0.5,0.5}]],InsetBox[FormBox[StyleBox[StyleBox[
+GraphicsBox[{{},{{InsetBox[BoxData[FormBox["13",TraditionalForm]],{8.4,-9.066666666666666},
+{Center,Center},{16.000000000000004,17.0}]},{InsetBox[BoxData[FormBox["15",TraditionalForm]],
+{8.4,-27.199999999999996},{Center,Center},{16.000000000000004,16.999999999999996}]}},{}},
+ImageSize -> 20,{PlotRangePadding -> {6,5},PlotRange -> {{0,16.8},{-36.266666666666666,0}}},
+ImageSize -> 20],Medium,GrayLevel[0],StripOnInput -> False],{GrayLevel[0]},StripOnInput -> False],
+TraditionalForm],Offset[{0,4},{7.0,107.0}],ImageScaled[{0.5,0}]],InsetBox[FormBox[
+StyleBox[StyleBox["107",Tiny,GrayLevel[0],StripOnInput -> False],{GrayLevel[0]},StripOnInput -> False],
+TraditionalForm],{7.0,53.5},ImageScaled[{0.5,0.5}]],InsetBox[FormBox[StyleBox[StyleBox[
+GraphicsBox[{{},{{InsetBox[BoxData[FormBox["5",TraditionalForm]],{8.4,-9.066666666666666},
+{Center,Center},{16.000000000000004,17.0}]},{InsetBox[BoxData[FormBox["15",TraditionalForm]],
+{8.4,-27.199999999999996},{Center,Center},{16.000000000000004,16.999999999999996}]}},{}},
+ImageSize -> 20,{PlotRangePadding -> {6,5},PlotRange -> {{0,16.8},{-36.266666666666666,0}}},
+ImageSize -> 20],Medium,GrayLevel[0],StripOnInput -> False],{GrayLevel[0]},StripOnInput -> False],
+TraditionalForm],Offset[{0,4},{8.0,106.0}],ImageScaled[{0.5,0}]],InsetBox[FormBox[
+StyleBox[StyleBox["106",Tiny,GrayLevel[0],StripOnInput -> False],{GrayLevel[0]},StripOnInput -> False],
+TraditionalForm],{8.0,53.0},ImageScaled[{0.5,0.5}]],InsetBox[FormBox[StyleBox[StyleBox[
+GraphicsBox[{{},{{InsetBox[BoxData[FormBox["4",TraditionalForm]],{8.4,-9.066666666666666},
+{Center,Center},{16.000000000000004,17.0}]},{InsetBox[BoxData[FormBox["20",TraditionalForm]],
+{8.4,-27.199999999999996},{Center,Center},{16.000000000000004,16.999999999999996}]}},{}},
+ImageSize -> 20,{PlotRangePadding -> {6,5},PlotRange -> {{0,16.8},{-36.266666666666666,0}}},
+ImageSize -> 20],Medium,GrayLevel[0],StripOnInput -> False],{GrayLevel[0]},StripOnInput -> False],
+TraditionalForm],Offset[{0,4},{9.0,106.0}],ImageScaled[{0.5,0}]],InsetBox[FormBox[
+StyleBox[StyleBox["106",Tiny,GrayLevel[0],StripOnInput -> False],{GrayLevel[0]},StripOnInput -> False],
+TraditionalForm],{9.0,53.0},ImageScaled[{0.5,0.5}]],InsetBox[FormBox[StyleBox[StyleBox[
+GraphicsBox[{{},{{InsetBox[BoxData[FormBox["31",TraditionalForm]],{8.4,-9.066666666666666},
+{Center,Center},{16.000000000000004,17.0}]},{InsetBox[BoxData[FormBox["42",TraditionalForm]],
+{8.4,-27.199999999999996},{Center,Center},{16.000000000000004,16.999999999999996}]}},{}},
+ImageSize -> 20,{PlotRangePadding -> {6,5},PlotRange -> {{0,16.8},{-36.266666666666666,0}}},
+ImageSize -> 20],Medium,GrayLevel[0],StripOnInput -> False],{GrayLevel[0]},StripOnInput -> False],
+TraditionalForm],Offset[{0,4},{10.0,105.0}],ImageScaled[{0.5,0}]],InsetBox[FormBox[
+StyleBox[StyleBox["105",Tiny,GrayLevel[0],StripOnInput -> False],{GrayLevel[0]},StripOnInput -> False],
+TraditionalForm],{10.0,52.5},ImageScaled[{0.5,0.5}]],InsetBox[FormBox[StyleBox[StyleBox[
+GraphicsBox[{{},{{InsetBox[BoxData[FormBox["25",TraditionalForm]],{8.4,-9.066666666666666},
+{Center,Center},{16.000000000000004,17.0}]},{InsetBox[BoxData[FormBox["27",TraditionalForm]],
+{8.4,-27.199999999999996},{Center,Center},{16.000000000000004,16.999999999999996}]}},{}},
+ImageSize -> 20,{PlotRangePadding -> {6,5},PlotRange -> {{0,16.8},{-36.266666666666666,0}}},
+ImageSize -> 20],Medium,GrayLevel[0],StripOnInput -> False],{GrayLevel[0]},StripOnInput -> False],
+TraditionalForm],Offset[{0,4},{11.0,105.0}],ImageScaled[{0.5,0}]],InsetBox[FormBox[
+StyleBox[StyleBox["105",Tiny,GrayLevel[0],StripOnInput -> False],{GrayLevel[0]},StripOnInput -> False],
+TraditionalForm],{11.0,52.5},ImageScaled[{0.5,0.5}]],InsetBox[FormBox[StyleBox[StyleBox[
+GraphicsBox[{{},{{InsetBox[BoxData[FormBox["21",TraditionalForm]],{8.4,-9.066666666666666},
+{Center,Center},{16.000000000000004,17.0}]},{InsetBox[BoxData[FormBox["39",TraditionalForm]],
+{8.4,-27.199999999999996},{Center,Center},{16.000000000000004,16.999999999999996}]}},{}},
+ImageSize -> 20,{PlotRangePadding -> {6,5},PlotRange -> {{0,16.8},{-36.266666666666666,0}}},
+ImageSize -> 20],Medium,GrayLevel[0],StripOnInput -> False],{GrayLevel[0]},StripOnInput -> False],
+TraditionalForm],Offset[{0,4},{12.0,105.0}],ImageScaled[{0.5,0}]],InsetBox[FormBox[
+StyleBox[StyleBox["105",Tiny,GrayLevel[0],StripOnInput -> False],{GrayLevel[0]},StripOnInput -> False],
+TraditionalForm],{12.0,52.5},ImageScaled[{0.5,0.5}]],InsetBox[FormBox[StyleBox[StyleBox[
+GraphicsBox[{{},{{InsetBox[BoxData[FormBox["13",TraditionalForm]],{8.4,-9.066666666666666},
+{Center,Center},{16.000000000000004,17.0}]},{InsetBox[BoxData[FormBox["37",TraditionalForm]],
+{8.4,-27.199999999999996},{Center,Center},{16.000000000000004,16.999999999999996}]}},{}},
+ImageSize -> 20,{PlotRangePadding -> {6,5},PlotRange -> {{0,16.8},{-36.266666666666666,0}}},
+ImageSize -> 20],Medium,GrayLevel[0],StripOnInput -> False],{GrayLevel[0]},StripOnInput -> False],
+TraditionalForm],Offset[{0,4},{13.0,105.0}],ImageScaled[{0.5,0}]],InsetBox[FormBox[
+StyleBox[StyleBox["105",Tiny,GrayLevel[0],StripOnInput -> False],{GrayLevel[0]},StripOnInput -> False],
+TraditionalForm],{13.0,52.5},ImageScaled[{0.5,0.5}]],InsetBox[FormBox[StyleBox[StyleBox[
+GraphicsBox[{{},{{InsetBox[BoxData[FormBox["26",TraditionalForm]],{8.4,-9.066666666666666},
+{Center,Center},{16.000000000000004,17.0}]},{InsetBox[BoxData[FormBox["42",TraditionalForm]],
+{8.4,-27.199999999999996},{Center,Center},{16.000000000000004,16.999999999999996}]}},{}},
+ImageSize -> 20,{PlotRangePadding -> {6,5},PlotRange -> {{0,16.8},{-36.266666666666666,0}}},
+ImageSize -> 20],Medium,GrayLevel[0],StripOnInput -> False],{GrayLevel[0]},StripOnInput -> False],
+TraditionalForm],Offset[{0,4},{14.0,104.0}],ImageScaled[{0.5,0}]],InsetBox[FormBox[
+StyleBox[StyleBox["104",Tiny,GrayLevel[0],StripOnInput -> False],{GrayLevel[0]},StripOnInput -> False],
+TraditionalForm],{14.0,52.0},ImageScaled[{0.5,0.5}]],InsetBox[FormBox[StyleBox[StyleBox[
+GraphicsBox[{{},{{InsetBox[BoxData[FormBox["17",TraditionalForm]],{8.4,-9.066666666666666},
+{Center,Center},{16.000000000000004,17.0}]},{InsetBox[BoxData[FormBox["38",TraditionalForm]],
+{8.4,-27.199999999999996},{Center,Center},{16.000000000000004,16.999999999999996}]}},{}},
+ImageSize -> 20,{PlotRangePadding -> {6,5},PlotRange -> {{0,16.8},{-36.266666666666666,0}}},
+ImageSize -> 20],Medium,GrayLevel[0],StripOnInput -> False],{GrayLevel[0]},StripOnInput -> False],
+TraditionalForm],Offset[{0,4},{15.0,104.0}],ImageScaled[{0.5,0}]],InsetBox[FormBox[
+StyleBox[StyleBox["104",Tiny,GrayLevel[0],StripOnInput -> False],{GrayLevel[0]},StripOnInput -> False],
+TraditionalForm],{15.0,52.0},ImageScaled[{0.5,0.5}]],InsetBox[FormBox[StyleBox[StyleBox[
+GraphicsBox[{{},{{InsetBox[BoxData[FormBox["13",TraditionalForm]],{8.4,-9.066666666666666},
+{Center,Center},{16.000000000000004,17.0}]},{InsetBox[BoxData[FormBox["31",TraditionalForm]],
+{8.4,-27.199999999999996},{Center,Center},{16.000000000000004,16.999999999999996}]}},{}},
+ImageSize -> 20,{PlotRangePadding -> {6,5},PlotRange -> {{0,16.8},{-36.266666666666666,0}}},
+ImageSize -> 20],Medium,GrayLevel[0],StripOnInput -> False],{GrayLevel[0]},StripOnInput -> False],
+TraditionalForm],Offset[{0,4},{16.0,104.0}],ImageScaled[{0.5,0}]],InsetBox[FormBox[
+StyleBox[StyleBox["104",Tiny,GrayLevel[0],StripOnInput -> False],{GrayLevel[0]},StripOnInput -> False],
+TraditionalForm],{16.0,52.0},ImageScaled[{0.5,0.5}]],InsetBox[FormBox[StyleBox[StyleBox[
+GraphicsBox[{{},{{InsetBox[BoxData[FormBox["9",TraditionalForm]],{8.4,-9.066666666666666},
+{Center,Center},{16.000000000000004,17.0}]},{InsetBox[BoxData[FormBox["29",TraditionalForm]],
+{8.4,-27.199999999999996},{Center,Center},{16.000000000000004,16.999999999999996}]}},{}},
+ImageSize -> 20,{PlotRangePadding -> {6,5},PlotRange -> {{0,16.8},{-36.266666666666666,0}}},
+ImageSize -> 20],Medium,GrayLevel[0],StripOnInput -> False],{GrayLevel[0]},StripOnInput -> False],
+TraditionalForm],Offset[{0,4},{17.0,104.0}],ImageScaled[{0.5,0}]],InsetBox[FormBox[
+StyleBox[StyleBox["104",Tiny,GrayLevel[0],StripOnInput -> False],{GrayLevel[0]},StripOnInput -> False],
+TraditionalForm],{17.0,52.0},ImageScaled[{0.5,0.5}]],InsetBox[FormBox[StyleBox[StyleBox[
+GraphicsBox[{{},{{InsetBox[BoxData[FormBox["34",TraditionalForm]],{8.4,-9.066666666666666},
+{Center,Center},{16.000000000000004,17.0}]},{InsetBox[BoxData[FormBox["46",TraditionalForm]],
+{8.4,-27.199999999999996},{Center,Center},{16.000000000000004,16.999999999999996}]}},{}},
+ImageSize -> 20,{PlotRangePadding -> {6,5},PlotRange -> {{0,16.8},{-36.266666666666666,0}}},
+ImageSize -> 20],Medium,GrayLevel[0],StripOnInput -> False],{GrayLevel[0]},StripOnInput -> False],
+TraditionalForm],Offset[{0,4},{18.0,103.0}],ImageScaled[{0.5,0}]],InsetBox[FormBox[
+StyleBox[StyleBox["103",Tiny,GrayLevel[0],StripOnInput -> False],{GrayLevel[0]},StripOnInput -> False],
+TraditionalForm],{18.0,51.5},ImageScaled[{0.5,0.5}]],InsetBox[FormBox[StyleBox[StyleBox[
+GraphicsBox[{{},{{InsetBox[BoxData[FormBox["34",TraditionalForm]],{8.4,-9.066666666666666},
+{Center,Center},{16.000000000000004,17.0}]},{InsetBox[BoxData[FormBox["36",TraditionalForm]],
+{8.4,-27.199999999999996},{Center,Center},{16.000000000000004,16.999999999999996}]}},{}},
+ImageSize -> 20,{PlotRangePadding -> {6,5},PlotRange -> {{0,16.8},{-36.266666666666666,0}}},
+ImageSize -> 20],Medium,GrayLevel[0],StripOnInput -> False],{GrayLevel[0]},StripOnInput -> False],
+TraditionalForm],Offset[{0,4},{19.0,103.0}],ImageScaled[{0.5,0}]],InsetBox[FormBox[
+StyleBox[StyleBox["103",Tiny,GrayLevel[0],StripOnInput -> False],{GrayLevel[0]},StripOnInput -> False],
+TraditionalForm],{19.0,51.5},ImageScaled[{0.5,0.5}]],InsetBox[FormBox[StyleBox[StyleBox[
+GraphicsBox[{{},{{InsetBox[BoxData[FormBox["32",TraditionalForm]],{8.4,-9.066666666666666},
+{Center,Center},{16.000000000000004,17.0}]},{InsetBox[BoxData[FormBox["34",TraditionalForm]],
+{8.4,-27.199999999999996},{Center,Center},{16.000000000000004,16.999999999999996}]}},{}},
+ImageSize -> 20,{PlotRangePadding -> {6,5},PlotRange -> {{0,16.8},{-36.266666666666666,0}}},
+ImageSize -> 20],Medium,GrayLevel[0],StripOnInput -> False],{GrayLevel[0]},StripOnInput -> False],
+TraditionalForm],Offset[{0,4},{20.0,103.0}],ImageScaled[{0.5,0}]],InsetBox[FormBox[
+StyleBox[StyleBox["103",Tiny,GrayLevel[0],StripOnInput -> False],{GrayLevel[0]},StripOnInput -> False],
+TraditionalForm],{20.0,51.5},ImageScaled[{0.5,0.5}]]},{},{},{StyleBox[{Antialiasing -> False,{Directive[
+Thickness[Tiny]],{LineBox[CompressedData["1:eJxTTMoPSmNiYGAoZgESPpnFJai8otqNT8S96y7aFzFAAZq8UG1KAtceEwe4PADkYxEN"]]},StyleBox[
+{},{"GraphicsLabel"},StripOnInput -> False]},StyleBox[{{Directive[Thickness[Tiny]],LineBox[
+CompressedData["1:eJxTTMoPSmNiYGAoZgESPpnFJai8olAweGpfxAAFEHk2IOGfllacWpLKCGSCxDqel/18devyHogyiQOEDAIAelIbew=="]],LineBox[
+CompressedData["1:eJxTTMoPSmNiYGAoZgESPpnFJai8ovBQEDBxKGKAAog8G5DwT0srTi1JZQQyQWIdz8t+vrp1eQ9EmcQBQgYBADnWGh8="]],{{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{}}},StyleBox[
+{},{"GraphicsLabel"},StripOnInput -> False]},{"GraphicsTicks"},StripOnInput -> False]},
+{"GraphicsAxes"},StripOnInput -> False]}},{DisplayFunction -> Identity,ImagePadding -> {{12.935432175351533,13.935432175351536},{3.3822974305172124,79.70574357629303}},DisplayFunction -> Identity,AspectRatio -> NCache[
+Power[GoldenRatio,-1],0.6180339887498948],Axes -> {False,True},AxesLabel -> {None,None},AxesOrigin -> {0.27333333333333326,0.0},CoordinatesToolOptions -> {"DisplayFunction" -> Function[
+{Identity[Part[Slot[1],1]],Identity[Part[Slot[1],2]]}],"CopiedValueFunction" -> Function[
+{Identity[Part[Slot[1],1]],Identity[Part[Slot[1],2]]}]},FrameLabel -> {{None,None},{None,None}},FrameTicks -> {{Automatic,Automatic},{Automatic,Automatic}},GridLines -> {None,{{82.86989795918367,Directive[
+RGBColor[1,0,0],Thickness[Large]]}}},GridLinesStyle -> Directive[GrayLevel[0.5,0.4]],LabelStyle -> {GrayLevel[
+0]},PlotLabel -> FormBox["\"Analiza wynik\[OAcute]w Du\:017cego Lotka .\\n Pierwsze losowanie:27.01.1957. Ostatnie Losowanie: 26.11.2020. \\n Liczba Losowa\:0144 6497. Najcz\:0119\:015bciej losowane pary liczb:  \"",
+TraditionalForm],PlotRange -> {{All,All},{All,All}},PlotRangePadding -> {{Scaled[
+0.02],Scaled[0.02]},{Scaled[0.02],Scaled[0.05]}},Ticks -> {None,Automatic}},ExpressionUUID -> "066e1188-2206-4b9b-a96f-4ed1c3cde760"],
+{181.91148877544862,-146.56758592033717},ImageScaled[{0.5,0.5}],{344.14841978708876,279.17635413397556}],InsetBox[
+GraphicsBox[{{},{},DynamicModuleBox[{Set[DynamicChart`click$287424$288452,False],Set[
+DynamicChart`click$287432$288452,False],Set[DynamicChart`click$287440$288452,False],Set[
+DynamicChart`click$287448$288452,False],Set[DynamicChart`click$287456$288452,False],Set[
+DynamicChart`click$287464$288452,False],Set[DynamicChart`click$287472$288452,False]},
+{{Directive[RGBColor[0.5,0.5,1.0],EdgeForm[Directive[GrayLevel[0],Opacity[0.5]]]],{{{{{{},{{Directive[
+EdgeForm[Directive[GrayLevel[0],Opacity[0.5]]],RGBColor[0.5113570000000001,0.4166535,
+0.329131]],TagBox[GeometricTransformationBox[TagBox[TagBox[TooltipBox[TagBox[{{TagBox[
+DynamicBox[{FEPrivate`If[CurrentValue["MouseOver"],EdgeForm[{GrayLevel[0.5],AbsoluteThickness[
+2.5],Opacity[0.66]}],{},{}],PolygonBox[CompressedData["1:eJxTTMoPSmViYGDQA2IQzXJcybi+86G98WovSfsjr+yV3DKfF667a78gcZnS3sg39g4G1ZEhjDfsQ3YtEXu98q396cS9SW2Sl+ylZm7imbzxnf3U0v3eH7hO2L+S8ss2yHtvfzSb6Zp4wHb7Nct/8n+7+97egXWLCcPrqv26mxdvu/T/vb1MtM7TqJW79nNd3ze1+PJ7+74jsenZG0/uX/NwhYZr5Hv7n1d53dc8v7Q/gKlIrWjSO3v2HdxTsk7c2L+6vmf5g4a39tOO5O+emHNvP1d1XKOu+hv7gFbzBu3HD/ef9eB/vLTjlf0qgbQDQSlP9vfp6Tnbr3xhL/FbV2L+5mf75xa829jb+8xe2/L+k6zTL/avKlq0fIfVE/vy992mM5a92u+z/nJW3raH9l/bl/jOdXiz/93hnsg1vPfsOVxs9/ZPfbufh3P3H8bUG/bujnc/6y56t/8Zq2/L5oZL9g9E8s2eJ7/fP7XCmDvw3gn7po47Tx7eeL/faEvZrjt/dtgzgMGH/ewxIsZqyxbaQPgMByD8jTYQ9f+h6k9AzfsPNQ9m3z+ofY+g7vkLdc8LqHv/QN37DuqfX1D/fIT69wfUv1+g4fENGh7foOH1BRpeP6Dh+REanr+g4f0OGt5/oPHxAhoff6Hx9QgaX/+g8XkTGp//ofF9Chrf/6HpoQuaHv5D08txaHr5D01PN6Dp6T80vT2Cprd/0PT4Apoe/0LT61toev1jD0nPH6Hp+Zc9APxTgUA="]]}],
+"DelayedMouseEffectStyle"],{}},{}},Function[StatusArea[Slot[1],2224]],TagBoxNote -> "2224"],
+StyleBox["2224",{Directive[GrayLevel[0]]},StripOnInput -> False]],Function[Annotation[
+Slot[1],Style[2224,{Directive[GrayLevel[0]]}],"Tooltip"]]],EventHandlerTag[{RuleDelayed[
+"MouseClicked",FEPrivate`Set[DynamicChart`click$287424$288452,FEPrivate`Not[DynamicChart`click$287424$288452]]],PassEventsDown -> True,Method -> "Preemptive",PassEventsUp -> True}]],
+Dynamic[FEPrivate`If[DynamicChart`click$287424$288452,{{{1.0,0.0},{0.0,1.0}},{-0.0950753084265801,0.1759564881656561}},
+{{1,0},{0,1}},{{1,0},{0,1}}],RuleDelayed[TrackedSymbols,{DynamicChart`click$287424$288452}]]],
+"DelayedClickEffect"]},{Directive[EdgeForm[Directive[GrayLevel[0],Opacity[0.5]]],
+RGBColor[0.669775,0.5309575,0.351797]],TagBox[GeometricTransformationBox[TagBox[TagBox[
+TooltipBox[TagBox[{{TagBox[DynamicBox[{FEPrivate`If[CurrentValue["MouseOver"],EdgeForm[
+{GrayLevel[0.5],AbsoluteThickness[2.5],Opacity[0.66]}],{},{}],PolygonBox[CompressedData[
+"1:eJxTTMoPSmViYGBQAmIQHckjzX327Gv7pphLLWvX3d9vetL80X/tt/YCKTfYIvxu7W9m+7r9pvs7+6y0diW9TVf2zxOw+H5F7r29yW6m3Cdnz+5Pvpe+lmP9e/sFrH7xiz8f3C/YVPlI5/t7+5fpsa0Wh5bvT6y90zT3G5B/z22tasMK++DyZVei1763X3h+8epNSofsf85YW8In895e5MrqzTJ/ztrza8y4/d/5nf3BzW3Gq05cse+wsM+TVn9rv7Ve+BFDyi372BeCCi+Pv7Z3EbB8Hnj4vr01c/rGds1X9lVLvy02yn1k/+LAlWlL/V/YM75zX3353BN79fhNMyvsntmbntzarMj43F5s4zmXLb8e2zuyXvaU/f/CnuW4knF950N749VekvZHXkH5H6H8X1D1n6Hqf0DN+wY17zvUvh/2DGD7vkDd8wvqnk/2MWD3/rZ3Bbv3PdQ/f6H+eQX17z+of59Aw+M/NDzuQsPrPzS8LtlDwvM/NDx32EPC+7/9TXB4b4fGx3/7JeD4uAiNr//2FuD4uguNz3/22eD4fAKN77/Q+H61H5IefkPTw/v9ADfEHTU="]]}],
+"DelayedMouseEffectStyle"],{}},{}},Function[StatusArea[Slot[1],1560]],TagBoxNote -> "1560"],
+StyleBox["1560",{Directive[GrayLevel[0]]},StripOnInput -> False]],Function[Annotation[
+Slot[1],Style[1560,{Directive[GrayLevel[0]]}],"Tooltip"]]],EventHandlerTag[{RuleDelayed[
+"MouseClicked",FEPrivate`Set[DynamicChart`click$287432$288452,FEPrivate`Not[DynamicChart`click$287432$288452]]],PassEventsDown -> True,Method -> "Preemptive",PassEventsUp -> True}]],
+Dynamic[FEPrivate`If[DynamicChart`click$287432$288452,{{{1.0,0.0},{0.0,1.0}},{0.19443497236002813,0.04685127024270639}},
+{{1,0},{0,1}},{{1,0},{0,1}}],RuleDelayed[TrackedSymbols,{DynamicChart`click$287432$288452}]]],
+"DelayedClickEffect"]},{Directive[EdgeForm[Directive[GrayLevel[0],Opacity[0.5]]],
+RGBColor[0.723168,0.559286,0.323473]],TagBox[GeometricTransformationBox[TagBox[TagBox[
+TooltipBox[TagBox[{{TagBox[DynamicBox[{FEPrivate`If[CurrentValue["MouseOver"],EdgeForm[
+{GrayLevel[0.5],AbsoluteThickness[2.5],Opacity[0.66]}],{},{}],PolygonBox[CompressedData[
+"1:eJxTTMoPSmViYGBQAGIQ/TYsaoNy/LX9Lnsc60x/v92vKck1kXXphf2zb7r7ST97t/8/59yZ/V1H97u9yeHT7H6//9j865ePmmzevzGVacXLF+/3X85rvvA1erJ9kfdz/c5/7/e3n74tc+H6HvvFt3uPXjv9fr/sjg6dHd6n7INZyhldA9/v/5K04h33j0v29z5qfnrR/26/gGiLUvT8G/ZBlh9Xlne+3R+otFyfif+e/RnLp0lODm/2zy5w2Bg996F9y9M/jobbX+3fPS/CL5X7iX0V458jez6+2F+YavFA3ueZPQOr5Kunn5/tL/refag46oX9cS8xZd1DT/bPSQmy2234yj57u7NGR+Kj/ZE80txnz762b4q51LJ23X0o/zeU/37/bLD6X1D1n6Dm/YCa92V/Pti+b/ZMYPu+7d8Fds8XqHt+QN37EereX1D/vIP6589+HrB/X9gHg/37d/8HcHg8gobHP2h43YKG139oeJ6Bhud/aHgvhob3//3XwPFxGBof/6HxdRUaX//364Lj8wE0Pv/th8T3M2h8/90PAAFwHVQ="]]}],
+"DelayedMouseEffectStyle"],{}},{}},Function[StatusArea[Slot[1],1458]],TagBoxNote -> "1458"],
+StyleBox["1458",{Directive[GrayLevel[0]]},StripOnInput -> False]],Function[Annotation[
+Slot[1],Style[1458,{Directive[GrayLevel[0]]}],"Tooltip"]]],EventHandlerTag[{RuleDelayed[
+"MouseClicked",FEPrivate`Set[DynamicChart`click$287440$288452,FEPrivate`Not[DynamicChart`click$287440$288452]]],PassEventsDown -> True,Method -> "Preemptive",PassEventsUp -> True}]],
+Dynamic[FEPrivate`If[DynamicChart`click$287440$288452,{{{1.0,0.0},{0.0,1.0}},{0.06818688860256322,-0.18801741467933664}},
+{{1,0},{0,1}},{{1,0},{0,1}}],RuleDelayed[TrackedSymbols,{DynamicChart`click$287440$288452}]]],
+"DelayedClickEffect"]},{Directive[EdgeForm[Directive[GrayLevel[0],Opacity[0.5]]],
+RGBColor[0.813935,0.656425,0.370324]],TagBox[GeometricTransformationBox[TagBox[TagBox[
+TooltipBox[TagBox[{{TagBox[DynamicBox[{FEPrivate`If[CurrentValue["MouseOver"],EdgeForm[
+{GrayLevel[0.5],AbsoluteThickness[2.5],Opacity[0.66]}],{},{}],PolygonBox[CompressedData[
+"1:eJxTTMoPSmViYGDgA2IQLX6QtZnlw8v93v73Vl/Y+2j/mWWGdbt/Pd+/fPZTq3KDp/vfJJ3W6zr1dH8fywY1gfzn+7N2xey9kPJ4P+vDk4/FS17u/+e573LR+Qf7A/0vB86wer2/2fqU1yTFO/tl7Fa/Ntn3Zv/bsKgNyvHX9rvscawz/f0Wyn8G5f+Fqn8DVf8Hat4HqHm/ofZ9htr3E+qer1D3fIe69zvUvV/3Q/zzE+qfT/sBdFmGFg=="]]}],
+"DelayedMouseEffectStyle"],{}},{}},Function[StatusArea[Slot[1],608]],TagBoxNote -> "608"],
+StyleBox["608",{Directive[GrayLevel[0]]},StripOnInput -> False]],Function[Annotation[
+Slot[1],Style[608,{Directive[GrayLevel[0]]}],"Tooltip"]]],EventHandlerTag[{RuleDelayed[
+"MouseClicked",FEPrivate`Set[DynamicChart`click$287448$288452,FEPrivate`Not[DynamicChart`click$287448$288452]]],PassEventsDown -> True,Method -> "Preemptive",PassEventsUp -> True}]],
+Dynamic[FEPrivate`If[DynamicChart`click$287448$288452,{{{1.0,0.0},{0.0,1.0}},{-0.12121131321870515,-0.1590843095587901}},
+{{1,0},{0,1}},{{1,0},{0,1}}],RuleDelayed[TrackedSymbols,{DynamicChart`click$287448$288452}]]],
+"DelayedClickEffect"]},{Directive[EdgeForm[Directive[GrayLevel[0],Opacity[0.5]]],
+RGBColor[0.8629224999999999,0.7435205,0.49417999999999995]],TagBox[GeometricTransformationBox[
+TagBox[TagBox[TooltipBox[TagBox[{{TagBox[DynamicBox[{FEPrivate`If[CurrentValue["MouseOver"],
+EdgeForm[{GrayLevel[0.5],AbsoluteThickness[2.5],Opacity[0.66]}],{},{}],PolygonBox[
+CompressedData["1:eJxTTMoPSmViYGDgAWIQfWq+rrPCvPf7NU8flFbcdXi//ttb8vXM7/fP/v/vx5uO8/vPWG2dW6n0bv+D/vLzQh1X97N+XVrB9/fN/o1hewIuSN3eHxqSver61Nf7NzyTimaxeLBf/CBrM8uHl/u9/e+tvrD3EZT/E8r/BFX/G6r+A9S8P1DzXkPt+we17ynUPf+h7rm/H+Le/1D3Xt4PALJVcug="]]}],
+"DelayedMouseEffectStyle"],{}},{}},Function[StatusArea[Slot[1],487]],TagBoxNote -> "487"],
+StyleBox["487",{Directive[GrayLevel[0]]},StripOnInput -> False]],Function[Annotation[
+Slot[1],Style[487,{Directive[GrayLevel[0]]}],"Tooltip"]]],EventHandlerTag[{RuleDelayed[
+"MouseClicked",FEPrivate`Set[DynamicChart`click$287456$288452,FEPrivate`Not[DynamicChart`click$287456$288452]]],PassEventsDown -> True,Method -> "Preemptive",PassEventsUp -> True}]],
+Dynamic[FEPrivate`If[DynamicChart`click$287456$288452,{{{1.0,0.0},{0.0,1.0}},{-0.18496500974881414,-0.0760785460469711}},
+{{1,0},{0,1}},{{1,0},{0,1}}],RuleDelayed[TrackedSymbols,{DynamicChart`click$287456$288452}]]],
+"DelayedClickEffect"]},{Directive[EdgeForm[Directive[GrayLevel[0],Opacity[0.5]]],
+RGBColor[0.91191,0.830616,0.618036]],TagBox[GeometricTransformationBox[TagBox[TagBox[
+TooltipBox[TagBox[{{TagBox[DynamicBox[{FEPrivate`If[CurrentValue["MouseOver"],EdgeForm[
+{GrayLevel[0.5],AbsoluteThickness[2.5],Opacity[0.66]}],{},{}],PolygonBox[CompressedData[
+"1:eJxTTMoPSmViYGBgAWIQvURrPiPH6/f7/bKcyvj9Nu0/NV/XWWHe+/2apw9KK+46DOX/h/Iv74eo/w9Vf2g/AH+wIXA="]]}],
+"DelayedMouseEffectStyle"],{}},{}},Function[StatusArea[Slot[1],86]],TagBoxNote -> "86"],
+StyleBox["86",{Directive[GrayLevel[0]]},StripOnInput -> False]],Function[Annotation[
+Slot[1],Style[86,{Directive[GrayLevel[0]]}],"Tooltip"]]],EventHandlerTag[{RuleDelayed[
+"MouseClicked",FEPrivate`Set[DynamicChart`click$287464$288452,FEPrivate`Not[DynamicChart`click$287464$288452]]],PassEventsDown -> True,Method -> "Preemptive",PassEventsUp -> True}]],
+Dynamic[FEPrivate`If[DynamicChart`click$287464$288452,{{{1.0,0.0},{0.0,1.0}},{-0.19872108309608838,-0.02258165479139094}},
+{{1,0},{0,1}},{{1,0},{0,1}}],RuleDelayed[TrackedSymbols,{DynamicChart`click$287464$288452}]]],
+"DelayedClickEffect"]},{Directive[EdgeForm[Directive[GrayLevel[0],Opacity[0.5]]],
+RGBColor[0.96020475,0.9570705,0.9039142499999999]],TagBox[GeometricTransformationBox[
+TagBox[TagBox[TooltipBox[TagBox[{{TagBox[DynamicBox[{FEPrivate`If[CurrentValue["MouseOver"],
+EdgeForm[{GrayLevel[0.5],AbsoluteThickness[2.5],Opacity[0.66]}],{},{}],PolygonBox[
+CompressedData["1:eJxTTMoPSmViYGBgAWIQDQEf9rPHiBirLVu4Z4nWfEaO1+/3+2U5lfH7bdoP4f+H8g/th2o4AFG/cQ8AYFIYkQ=="]]}],
+"DelayedMouseEffectStyle"],{}},{}},Function[StatusArea[Slot[1],74]],TagBoxNote -> "74"],
+StyleBox["74",{Directive[GrayLevel[0]]},StripOnInput -> False]],Function[Annotation[
+Slot[1],Style[74,{Directive[GrayLevel[0]]}],"Tooltip"]]],EventHandlerTag[{RuleDelayed[
+"MouseClicked",FEPrivate`Set[DynamicChart`click$287472$288452,FEPrivate`Not[DynamicChart`click$287472$288452]]],PassEventsDown -> True,Method -> "Preemptive",PassEventsUp -> True}]],
+Dynamic[FEPrivate`If[DynamicChart`click$287472$288452,{{{1.0,0.0},{0.0,1.0}},{-0.19987197608246635,-0.007154940732808379}},
+{{1,0},{0,1}},{{1,0},{0,1}}],RuleDelayed[TrackedSymbols,{DynamicChart`click$287472$288452}]]],
+"DelayedClickEffect"]}}}}},{}},{{}}}},{{{{TagBox[GeometricTransformationBox[TagBox[
+TagBox[TooltipBox[TagBox[{{},{{{},{InsetBox[FormBox[StyleBox[RowBox[{"34.230000000000004`"," ","\"%\""}],
+{Directive[GrayLevel[0]]},StripOnInput -> False],TraditionalForm],{-0.7130648131993507,1.3196736612424207}]}},{{{Directive[
+Thickness[0.002],Opacity[1],GrayLevel[0]],LineBox[CompressedData["1:eJxTTMoPSmNiYGAoZgESPpnFJai8omlH8ndPzHm3v4irOq5RV/2PPZr8m4ra3m27P+wvimxvdHz6/Z89AL1MHOg="]],LineBox[
+CompressedData["1:eJxTTMoPSmNiYGAoZgESPpnFJai8ojcVtb3bdn/YXxTZ3uj49Ps/ezR5+TUbDrx89xkhDwAPgh9G"]]},{Directive[
+Opacity[1],GrayLevel[0]],DiskBox[{-0.950753084265801,1.7595648816565608},0.03333333333333333]},InsetBox[
+FormBox[StyleBox[RowBox[{"{",RowBox[{RowBox[{"3"," ","\"P\""}],",",RowBox[{"3"," ","\"N\""}]}],"}"}],
+{Directive[GrayLevel[0]]},StripOnInput -> False],TraditionalForm],{-1.2838585160630132,1.9355213698222171},
+ImageScaled[{1,Rational[1,2]}]]}}}},Function[StatusArea[Slot[1],2224]],TagBoxNote -> "2224"],
+StyleBox["2224",{Directive[GrayLevel[0]]},StripOnInput -> False]],Function[Annotation[
+Slot[1],Style[2224,{Directive[GrayLevel[0]]}],"Tooltip"]]],EventHandlerTag[{RuleDelayed[
+"MouseClicked",FEPrivate`Set[DynamicChart`click$287424$288452,FEPrivate`Not[DynamicChart`click$287424$288452]]],PassEventsDown -> True,Method -> "Preemptive",PassEventsUp -> True}]],
+Dynamic[FEPrivate`If[DynamicChart`click$287424$288452,{{{1.0,0.0},{0.0,1.0}},{-0.0950753084265801,0.1759564881656561}},
+{{1,0},{0,1}},{{1,0},{0,1}}],RuleDelayed[TrackedSymbols,{DynamicChart`click$287424$288452}]]],
+"DelayedClickEffect"],TagBox[GeometricTransformationBox[TagBox[TagBox[TooltipBox[
+TagBox[{{},{{{},{InsetBox[FormBox[StyleBox[RowBox[{"24.01`"," ","\"%\""}],{Directive[
+GrayLevel[0]]},StripOnInput -> False],TraditionalForm],{1.458262292700211,0.3513845268202979}]}},{{{Directive[
+Thickness[0.002],Opacity[1],GrayLevel[0]],LineBox[CompressedData["1:eJxTTMoPSmNiYGAoZgESPpnFJai8op8z1pbwyfy3LxK5snqzzJ+79mjye9dOUrOWYXQouvGcZdqd2gf2AKp4Gp0="]],LineBox[
+CompressedData["1:eJxTTMoPSmNiYGAoZgESPpnFJai8or1rJ6lZyzA6FN14zjLtTu0DezT5cHedA1e2MiHkAYA3Gi8="]]},{Directive[
+Opacity[1],GrayLevel[0]],DiskBox[{1.9443497236002811,0.4685127024270639},0.03333333333333333]},InsetBox[
+FormBox[StyleBox[RowBox[{"{",RowBox[{RowBox[{"2"," ","\"P\""}],",",RowBox[{"4"," ","\"N\""}]}],"}"}],
+{Directive[GrayLevel[0]]},StripOnInput -> False],TraditionalForm],{2.416558684904321,0.5153639726697703},
+ImageScaled[{0,Rational[1,2]}]]}}}},Function[StatusArea[Slot[1],1560]],TagBoxNote -> "1560"],
+StyleBox["1560",{Directive[GrayLevel[0]]},StripOnInput -> False]],Function[Annotation[
+Slot[1],Style[1560,{Directive[GrayLevel[0]]}],"Tooltip"]]],EventHandlerTag[{RuleDelayed[
+"MouseClicked",FEPrivate`Set[DynamicChart`click$287432$288452,FEPrivate`Not[DynamicChart`click$287432$288452]]],PassEventsDown -> True,Method -> "Preemptive",PassEventsUp -> True}]],
+Dynamic[FEPrivate`If[DynamicChart`click$287432$288452,{{{1.0,0.0},{0.0,1.0}},{0.19443497236002813,0.04685127024270639}},
+{{1,0},{0,1}},{{1,0},{0,1}}],RuleDelayed[TrackedSymbols,{DynamicChart`click$287432$288452}]]],
+"DelayedClickEffect"],TagBox[GeometricTransformationBox[TagBox[TagBox[TooltipBox[
+TagBox[{{},{{{},{InsetBox[FormBox[StyleBox[RowBox[{"22.44`"," ","\"%\""}],{Directive[
+GrayLevel[0]]},StripOnInput -> False],TraditionalForm],{0.5114016645192242,-1.4101306100950248}]}},{{{Directive[
+Thickness[0.002],Opacity[1],GrayLevel[0]],LineBox[CompressedData["1:eJxTTMoPSmNiYGAoZgESPpnFJai8IsvqLZvuXXxqX8RqVFJjKPpvP5p8T/ux7yUML+yLmqWLWVZ0MxwAAKMRGgg="]],LineBox[
+CompressedData["1:eJxTTMoPSmNiYGAoZgESPpnFJai8op72Y99LGF7YFzVLF7Os6GY4gCb/6a1O3O20dwh5AJLWGdA="]]},{Directive[
+Opacity[1],GrayLevel[0]],DiskBox[{0.6818688860256322,-1.8801741467933664},0.03333333333333333]},InsetBox[
+FormBox[StyleBox[RowBox[{"{",RowBox[{RowBox[{"4"," ","\"P\""}],",",RowBox[{"2"," ","\"N\""}]}],"}"}],
+{Directive[GrayLevel[0]]},StripOnInput -> False],TraditionalForm],{0.9773305300692208,-2.068191561472703},
+ImageScaled[{0,Rational[1,2]}]]}}}},Function[StatusArea[Slot[1],1458]],TagBoxNote -> "1458"],
+StyleBox["1458",{Directive[GrayLevel[0]]},StripOnInput -> False]],Function[Annotation[
+Slot[1],Style[1458,{Directive[GrayLevel[0]]}],"Tooltip"]]],EventHandlerTag[{RuleDelayed[
+"MouseClicked",FEPrivate`Set[DynamicChart`click$287440$288452,FEPrivate`Not[DynamicChart`click$287440$288452]]],PassEventsDown -> True,Method -> "Preemptive",PassEventsUp -> True}]],
+Dynamic[FEPrivate`If[DynamicChart`click$287440$288452,{{{1.0,0.0},{0.0,1.0}},{0.06818688860256322,-0.18801741467933664}},
+{{1,0},{0,1}},{{1,0},{0,1}}],RuleDelayed[TrackedSymbols,{DynamicChart`click$287440$288452}]]],
+"DelayedClickEffect"],TagBox[GeometricTransformationBox[TagBox[TagBox[TooltipBox[
+TagBox[{{},{{{},{InsetBox[FormBox[StyleBox[RowBox[{"9.36`"," ","\"%\""}],{Directive[
+GrayLevel[0]]},StripOnInput -> False],TraditionalForm],{-0.9090848491402886,-1.1931323216909258}]}},{{{Directive[
+Thickness[0.002],Opacity[1],GrayLevel[0]],LineBox[CompressedData["1:eJxTTMoPSmNiYGAoZgESPpnFJai8oqxdMXsvpHzeX8T68ORj8ZKf+9Hkb8+sZ/YJ/bq/aOeq7w82//+9HwD37B9n"]],LineBox[
+CompressedData["1:eJxTTMoPSmNiYGAoZgESPpnFJai8otsz65l9Qr/uL9q56vuDzf9/70eT5zu7yay+4wdCHgAW2iCW"]]},{Directive[
+Opacity[1],GrayLevel[0]],DiskBox[{-1.2121131321870515,-1.590843095587901},0.03333333333333333]},InsetBox[
+FormBox[StyleBox[RowBox[{"{",RowBox[{"\"P\"",",",RowBox[{"5"," ","\"N\""}]}],"}"}],
+{Directive[GrayLevel[0]]},StripOnInput -> False],TraditionalForm],{-1.5818089706932388,-1.749927405146691},
+ImageScaled[{1,Rational[1,2]}]]}}}},Function[StatusArea[Slot[1],608]],TagBoxNote -> "608"],
+StyleBox["608",{Directive[GrayLevel[0]]},StripOnInput -> False]],Function[Annotation[
+Slot[1],Style[608,{Directive[GrayLevel[0]]}],"Tooltip"]]],EventHandlerTag[{RuleDelayed[
+"MouseClicked",FEPrivate`Set[DynamicChart`click$287448$288452,FEPrivate`Not[DynamicChart`click$287448$288452]]],PassEventsDown -> True,Method -> "Preemptive",PassEventsUp -> True}]],
+Dynamic[FEPrivate`If[DynamicChart`click$287448$288452,{{{1.0,0.0},{0.0,1.0}},{-0.12121131321870515,-0.1590843095587901}},
+{{1,0},{0,1}},{{1,0},{0,1}}],RuleDelayed[TrackedSymbols,{DynamicChart`click$287448$288452}]]],
+"DelayedClickEffect"],TagBox[GeometricTransformationBox[TagBox[TagBox[TooltipBox[
+TagBox[{{},{{{},{InsetBox[FormBox[StyleBox[RowBox[{"7.5`"," ","\"%\""}],{Directive[
+GrayLevel[0]]},StripOnInput -> False],TraditionalForm],{-1.387237573116106,-0.5705890953522832}]}},{{{Directive[
+Thickness[0.002],Opacity[1],GrayLevel[0]],LineBox[CompressedData["1:eJxTTMoPSmNiYGAoZgESPpnFJai8oknCMZu1ZvzdX7R59f/9UREv9qPJf7fl8XzixnCgaA1nGtv046/2AwDNDRvA"]],LineBox[
+CompressedData["1:eJxTTMoPSmNiYGAoZgESPpnFJai8ou+2PJ5P3BgOFK3hTGObfvzVfjT5ideXPqp9wIiQBwCRzhtO"]]},{Directive[
+Opacity[1],GrayLevel[0]],DiskBox[{-1.8496500974881411,-0.760785460469711},0.03333333333333333]},InsetBox[
+FormBox[StyleBox[RowBox[{"{",RowBox[{RowBox[{"5"," ","\"P\""}],",","\"N\""}],"}"}],
+{Directive[GrayLevel[0]]},StripOnInput -> False],TraditionalForm],{-2.3086011111364813,-0.8368640065166821},
+ImageScaled[{1,Rational[1,2]}]]}}}},Function[StatusArea[Slot[1],487]],TagBoxNote -> "487"],
+StyleBox["487",{Directive[GrayLevel[0]]},StripOnInput -> False]],Function[Annotation[
+Slot[1],Style[487,{Directive[GrayLevel[0]]}],"Tooltip"]]],EventHandlerTag[{RuleDelayed[
+"MouseClicked",FEPrivate`Set[DynamicChart`click$287456$288452,FEPrivate`Not[DynamicChart`click$287456$288452]]],PassEventsDown -> True,Method -> "Preemptive",PassEventsUp -> True}]],
+Dynamic[FEPrivate`If[DynamicChart`click$287456$288452,{{{1.0,0.0},{0.0,1.0}},{-0.18496500974881414,-0.0760785460469711}},
+{{1,0},{0,1}},{{1,0},{0,1}}],RuleDelayed[TrackedSymbols,{DynamicChart`click$287456$288452}]]],
+"DelayedClickEffect"],TagBox[GeometricTransformationBox[TagBox[TagBox[TooltipBox[
+TagBox[{{},{{{},{InsetBox[FormBox[StyleBox[RowBox[{"1.32`"," ","\"%\""}],{Directive[
+GrayLevel[0]]},StripOnInput -> False],TraditionalForm],{-1.4904081232206627,-0.16936241093543203}]}},{{{Directive[
+Thickness[0.002],Opacity[1],GrayLevel[0]],LineBox[CompressedData["1:eJxTTMoPSmNiYGAoZgESPpnFJai8osR9k6fOPf1/f5HBKfGGvudn9qPJ+zsJ3j9Zw3igaM7EBrXm0+f3AwDkchyy"]],LineBox[
+CompressedData["1:eJxTTMoPSmNiYGAoZgESPpnFJai8In8nwfsnaxgPFM2Z2KDWfPr8fjT5l7dXVSSLMSPkAaHgG4U="]]},{Directive[
+Opacity[1],GrayLevel[0]],DiskBox[{-1.9872108309608836,-0.22581654791390937},0.03333333333333333]},InsetBox[
+FormBox[StyleBox[RowBox[{"{",RowBox[{"\"0P\"",",",RowBox[{"6"," ","\"N\""}]}],"}"}],
+{Directive[GrayLevel[0]]},StripOnInput -> False],TraditionalForm],{-2.4654203472954075,-0.24839820270530033},
+ImageScaled[{1,Rational[1,2]}]]}}}},Function[StatusArea[Slot[1],86]],TagBoxNote -> "86"],
+StyleBox["86",{Directive[GrayLevel[0]]},StripOnInput -> False]],Function[Annotation[
+Slot[1],Style[86,{Directive[GrayLevel[0]]}],"Tooltip"]]],EventHandlerTag[{RuleDelayed[
+"MouseClicked",FEPrivate`Set[DynamicChart`click$287464$288452,FEPrivate`Not[DynamicChart`click$287464$288452]]],PassEventsDown -> True,Method -> "Preemptive",PassEventsUp -> True}]],
+Dynamic[FEPrivate`If[DynamicChart`click$287464$288452,{{{1.0,0.0},{0.0,1.0}},{-0.19872108309608838,-0.02258165479139094}},
+{{1,0},{0,1}},{{1,0},{0,1}}],RuleDelayed[TrackedSymbols,{DynamicChart`click$287464$288452}]]],
+"DelayedClickEffect"],TagBox[GeometricTransformationBox[TagBox[TagBox[TooltipBox[
+TagBox[{{},{{{},{InsetBox[FormBox[StyleBox[RowBox[{"1.1400000000000001`"," ","\"%\""}],
+{Directive[GrayLevel[0]]},StripOnInput -> False],TraditionalForm],{-1.4990398206184976,-0.053662055496062844}]}},{{{Directive[
+Thickness[0.002],Opacity[1],GrayLevel[0]],LineBox[CompressedData["1:eJxTTMoPSmNiYGAoZgESPpnFJai8IsVjmZMO/vq/v2jB1tY7/IGb9qPJ/9TZ5bx9GuOBor9VP298V92yHwD16x5n"]],LineBox[
+CompressedData["1:eJxTTMoPSmNiYGAoZgESPpnFJai8op86u5y3T2M8UPS36ueN76pb9qPJTz4WfDfAgBkhDwDx/R4o"]]},{Directive[
+Opacity[1],GrayLevel[0]],DiskBox[{-1.9987197608246634,-0.07154940732808379},0.03333333333333333]},InsetBox[
+FormBox[StyleBox[RowBox[{"{",RowBox[{RowBox[{"6"," ","\"P\""}],",","\"0N\""}],"}"}],
+{Directive[GrayLevel[0]]},StripOnInput -> False],TraditionalForm],{-2.4785405273401167,-0.07870434806089217},
+ImageScaled[{1,Rational[1,2]}]]}}}},Function[StatusArea[Slot[1],74]],TagBoxNote -> "74"],
+StyleBox["74",{Directive[GrayLevel[0]]},StripOnInput -> False]],Function[Annotation[
+Slot[1],Style[74,{Directive[GrayLevel[0]]}],"Tooltip"]]],EventHandlerTag[{RuleDelayed[
+"MouseClicked",FEPrivate`Set[DynamicChart`click$287472$288452,FEPrivate`Not[DynamicChart`click$287472$288452]]],PassEventsDown -> True,Method -> "Preemptive",PassEventsUp -> True}]],
+Dynamic[FEPrivate`If[DynamicChart`click$287472$288452,{{{1.0,0.0},{0.0,1.0}},{-0.19987197608246635,-0.007154940732808379}},
+{{1,0},{0,1}},{{1,0},{0,1}}],RuleDelayed[TrackedSymbols,{DynamicChart`click$287472$288452}]]],
+"DelayedClickEffect"]},{}}},{}},{},{}},RuleDelayed[DynamicModuleValues,{}]],{{{},{}}},{{{{},{},{},{}}},{}}},
+{DisplayFunction -> Identity,ImagePadding -> {{23.5,26.5},{3.3822974305172124,79.70574357629303}},DisplayFunction -> Identity,ContentSelectable -> False,GridLinesStyle -> Directive[
+GrayLevel[0.5,0.4]],LabelStyle -> Directive[GrayLevel[0]],PlotLabel -> FormBox["\"Cz\:0119sto\:015b\[CAcute] parzystych(P) i\\n nieparzystych(N) \\n liczb w losowaniu: \"",
+TraditionalForm],PlotRange -> {{All,All},{All,All}},PlotRangePadding -> Scaled[0.05]}],
+{496.7044129963841,-146.56758592033717},ImageScaled[{0.5,0.5}],{246.08831312716532,279.17635413397556}]}},{Directive[
+Antialiasing -> False],{},{{LineBox[CompressedData["1:eJxTTMoPSmNiYGAoZgESPpnFJai8TCDNACawiBdN3fBppWZQ0QEAvhcO8A=="]]},{LineBox[
+CompressedData["1:eJxTTMoPSmNiYGAoZgESPpnFJai8IiX1pldae8scMoECDDjkiqZu+LRSM6joAAC3ChWm"]]},{LineBox[
+CompressedData["1:eJxTTMoPSmNiYGAoZgESPpnFJai8or8X/S6uX9PskAkUYMAhVzR1w6eVmkFFBwAd3xkY"]]},{LineBox[
+CompressedData["1:eJxTTMoPSmNiYGAoZgESPpnFJai8TCDNACZQxYuU1Jteae0tcwDLAQDFVQ21"]]},{LineBox[
+CompressedData["1:eJxTTMoPSmNiYGAoZgESPpnFJai8IiX1pldae8scMoECDGhyfy/6XVy/phkiBwBxKxLJ"]]},{LineBox[
+CompressedData["1:eJxTTMoPSmNiYGAoZgESPpnFJai8TCDNUDR1w6eVmkFFB1DlipTUm15p7S1zgMsDANcsFuE="]]},{LineBox[
+CompressedData["1:eJxTTMoPSmNiYGAoZgESPpnFJai8IiX1pldae8sciqZu+LRSM6joAJr834t+F9evaUbIAwCkvhv1"]]}}}},
+PlotRangePadding -> {6,5},PlotRange -> {{0,629.585848441871},{-293.13517184067433,0}},
+ImageSize -> {UpTo[600],UpTo[300]},ExpressionUUID -> "90fd8df1-2894-4d52-8cb4-ae3a4baefdd0"],
+StandardForm],"Output",CellLabel -> "Out[36]= ",ExpressionUUID -> "0050c1dd-b86a-49f9-bdff-18ac11c34924"]},
+Open],ExpressionUUID -> "f5f228c3-42c2-4ec2-97f2-477679e0efd3"],Cell[
+CellGroupData[
+{Cell[
+BoxData[RowBox[{"CloudExport","[",RowBox[{"%",",","\"pdf\""}],"]"}]],"Input",
+CellLabel -> "In[37]:= ",ExpressionUUID -> "85fa8f58-e071-4bc2-8c2f-0c7ec3e9483d"],Cell[
+BoxData[
+InterpretationBox[RowBox[{"CloudObject","[",TemplateBox[{"\"https://www.wolframcloud.com/obj/d956f62c-db06-4a5a-a98b-afe78b2e2caf\"","https://www.wolframcloud.com/obj/d956f62c-db06-4a5a-a98b-afe78b2e2caf"},
+"HyperlinkURL"],"]"}],CloudObject["https://www.wolframcloud.com/obj/d956f62c-db06-4a5a-a98b-afe78b2e2caf"],
+SelectWithContents -> True],StandardForm],"Output",CellLabel -> "Out[37]= ",ExpressionUUID -> "1d571395-a84c-4177-a985-a7b1e8d667db"]},
+Open],ExpressionUUID -> "86e8529a-24e9-4187-bdca-f8e6935b9461"]},StyleDefinitions -> "Default.nb",
+FrontEndVersion -> "12.1 for Wolfram Cloud 1.56 (September 30, 2020)"]
